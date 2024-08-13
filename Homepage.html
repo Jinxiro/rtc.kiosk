@@ -239,24 +239,24 @@
           justify-content: center;
           z-index: -1;
           position: absolute;
-          animation: spin 50s linear infinite;
-
+          
           img {
             z-index: -1;
             position: absolute;
-            height: 600px;
+            height: 650px;
+            animation: spin 5s linear infinite;
           }
         }
-
         @keyframes spin {
           from {
             transform: rotate(0deg);
           }
-
           to {
             transform: rotate(360deg);
           }
         }
+        
+
 
         .leftContainer {
           display: flex;
