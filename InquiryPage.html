@@ -1,478 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inquire</title>
-    <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        /* outline: 1px solid red; */
-      }
-      body {
-        background-image: url(assets/images/rtc-bg.jpg);
-        background-position: center;
-        background-size: cover;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: linear-gradient(
-            to right,
-            rgba(4, 0, 42, 0.897),
-            rgba(4, 0, 42, 0.719),
-            rgba(4, 0, 42, 0.897)
-          ); /* Adjust the color and opacity as needed */
-          z-index: -1; /* Place the overlay above the background image */
-          pointer-events: none; /* Allow clicking through the overlay */
-        }
-      }
-      dialog {
-        margin: auto;
-        padding: 50px;
-        width: 1300px;
-        border: none;
-        border-radius: 15px;
 
-        .contentplayer {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquire</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      /* outline: 1px solid red; */
+    }
 
-          p {
-            width: 1000px;
-          }
+    body {
+      background-image: url(assets/images/rtc-bg.jpg);
+      background-position: center;
+      background-size: cover;
 
-          button {
-            text-transform: uppercase;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            background-color: navy;
-            margin: 20px;
-            width: 200px;
-            padding: 10px;
-          }
-        }
-
-        .headerSec {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          h1 {
-            font-size: 60px;
-          }
-          button {
-            padding: 10px;
-            background-color: rgb(197, 197, 197);
-            border: none;
-            border-radius: 5px;
-          }
-        }
-        .tutorialCard {
-          margin: 10px 0px;
-          padding: 10px;
-          background-color: rgb(236, 236, 236);
-          border-radius: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: 0.5s ease;
-          &:hover {
-            cursor: pointer;
-            background-color: rgb(215, 215, 215);
-          }
-          img {
-            border-radius: 10px;
-            height: 200px;
-            margin: 20px;
-          }
-          button {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-
-            margin: 10px 0px;
-            border: none;
-            width: 150px;
-            border-radius: 20px;
-            color: white;
-            padding: 20px;
-
-            background-color: navy;
-          }
-        }
-      }
-
-      iframe {
-        width: 1200px;
-        height: 560px;
-        border: none;
-        margin: 20px;
-        border-radius: 15px;
-        box-shadow: 2px 2px 5px solid black;
-      }
-
-      .videoLibray {
-        padding: 50px 100px;
+      &::before {
+        content: "";
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right,
+            rgba(4, 0, 42, 0.897),
+            rgba(4, 0, 42, 0.719),
+            rgba(4, 0, 42, 0.897));
+        /* Adjust the color and opacity as needed */
+        z-index: -1;
+        /* Place the overlay above the background image */
+        pointer-events: none;
+        /* Allow clicking through the overlay */
+      }
+    }
+
+    dialog {
+      margin: auto;
+      padding: 50px;
+      height: 900px;
+      width: 1300px;
+      border: none;
+      border-radius: 15px;
+      overflow: auto;
+      box-sizing: border-box;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 100px;
+        border-radius: 10px;
+      }
+
+
+      &::-webkit-scrollbar-thumb {
+        background: rgb(219, 219, 219);
+        border-radius: 40px;  
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgb(213, 182, 255);
+      }
+
+      .contentplayer {
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
-        background-image: linear-gradient(
-          to bottom,
-          rgba(255, 0, 0, 0),
-          rgb(0, 0, 28)
-        );
 
-        h3 {
-          margin: 10px 0px;
+        p {
+          width: 1000px;
         }
 
-        .videos {
-          gap: 20px;
-          display: grid;
-          min-width: 100vh;
-          grid-template-columns: auto auto auto auto;
-
-          .seeAllbtn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            button {
-              color: white;
-              outline: 1px solid white;
-              border: none;
-              border-radius: 20px;
-              background-color: transparent;
-              width: 150px;
-              padding: 10px 20px;
-              transition: 0.5s ease;
-
-              &:hover {
-                cursor: pointer;
-                background-color: navy;
-                outline: none;
-              }
-            }
-          }
-
-          .thumbnail {
-            position: relative;
-            transition: 0.5s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 5px 5px 10px solid black;
-            &:hover {
-              scale: 1.05;
-            }
-
-            img {
-              border-radius: 15px;
-              object-fit: cover;
-              height: 250px;
-              width: 450px;
-            }
-
-            .content {
-              border-radius: 15px;
-              height: 250px;
-              width: 450px;
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              position: absolute;
-              opacity: 0;
-              background: rgba(0, 0, 36, 0.835);
-              transition: 0.6s;
-
-              p {
-                width: 150px;
-                background-color: red;
-                padding: 5px 10px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-radius: 15px;
-              }
-            }
-
-            .content:hover {
-              opacity: 1;
-              cursor: pointer;
-            }
-          }
+        button {
+          text-transform: uppercase;
+          border: none;
+          border-radius: 10px;
+          color: white;
+          background-color: navy;
+          margin: 20px;
+          width: 200px;
+          padding: 10px;
         }
       }
 
-      main {
-        color: white;
+      .headerSec {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 60vh;
-        z-index: -10;
-        background-blend-mode: overlay;
 
-        .leftcontent {
-          padding-left: 120px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 50vh;
-
-          .playArea {
-            width: 700px;
-            display: grid;
-            gap: 10px;
-            grid-template-columns: auto auto;
-
-            a {
-              font-weight: 500;
-              text-decoration: none;
-            }
-
-            button {
-              display: flex;
-              align-items: center;
-              justify-content: space-evenly;
-              background-color: rgb(255, 255, 255);
-              border: none;
-              border-radius: 5px;
-              width: 120px;
-              padding: 10px 10px;
-              transition: 0.5s ease;
-
-              &:hover {
-                scale: 1.05;
-                background-color: rgb(225, 225, 255);
-              }
-            }
-
-            h1 {
-              line-height: 80px;
-              font-size: 70px;
-            }
-
-            p {
-              font-size: 18px;
-            }
-
-            h1,
-            p,
-            h3 {
-              grid-column: 1 / span2;
-            }
-          }
+        h1 {
+          font-size: 60px;
         }
 
-        .rightcontent {
-          padding-right: 120px;
+        button {
+          padding: 10px;
+          background-color: rgb(197, 197, 197);
+          border: none;
+          border-radius: 5px;
+        }
+      }
+
+      .tutorialCard {
+        margin: 10px 0px;
+        padding: 10px;
+        background-color: rgb(236, 236, 236);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(215, 215, 215);
+        }
+
+        img {
+          border-radius: 10px;
+          height: 200px;
+          margin: 20px;
+        }
+
+        button {
           display: flex;
-          justify-content: center;
           align-items: center;
-          .contentArea {
-            width: 450px;
+          justify-content: space-around;
 
-            h1 {
-              text-align: right;
-              font-size: 70px;
-            }
+          margin: 10px 0px;
+          border: none;
+          width: 150px;
+          border-radius: 20px;
+          color: white;
+          padding: 20px;
 
-            p {
-              font-size: 20px;
-              text-align: right;
-            }
+          background-color: navy;
+        }
+      }
+    }
+
+    iframe {
+      width: 1200px;
+      height: 560px;
+      border: none;
+      margin: 20px;
+      border-radius: 15px;
+      box-shadow: 2px 2px 5px solid black;
+    }
+
+    .videoLibray {
+      padding: 50px 100px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-image: linear-gradient(to bottom,
+          rgba(255, 0, 0, 0),
+          rgb(0, 0, 28));
+
+      h3 {
+        margin: 10px 0px;
+      }
+
+      .videoContainer {
+        display: flex;
+      }
+
+      .seeAllbtn {
+        display: flex;
+        justify-content: ;
+        align-items: center;
+
+        button {
+          color: white;
+          outline: 1px solid white;
+          border: none;
+          border-radius: 20px;
+          background-color: transparent;
+          width: 150px;
+          padding: 10px 20px;
+          transition: 0.5s ease;
+
+          &:hover {
+            cursor: pointer;
+            background-color: navy;
+            outline: none;
           }
         }
       }
-    </style>
-  </head>
-  <body>
-    <!-- DIALOG DATAS -->
-    <div class="dialogs">
-      <dialog id="SeeMoreSection">
-        <div class="headerSec">
-          <h1>Tutorials</h1>
-          <button onclick="SeeMoreSection.close()">close</button>
-        </div>
 
-        <div class="tutorialCard">
-          <img src="assets/images/OR-Thumbnail.png" alt="" />
-          <div class="details">
-            <h1>Online Registration</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              repellendus architecto cupiditate vitae! Recusandae, quasi! Sit
-              explicabo error voluptate quibusdam vel facere nulla porro odio
-              maxime. Velit accusantium fugiat eos.
-            </p>
-            <button onclick="OnlineReg.showModal()">
-              Play<i class="material-icons">play_circle_outline</i>
-            </button>
-          </div>
-        </div>
-        <div class="tutorialCard">
-          <img src="assets/images/EP-Thumbnail.jpg" alt="" />
-          <div class="details">
-            <h1>Enrollment Process</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              repellendus architecto cupiditate vitae! Recusandae, quasi! Sit
-              explicabo error voluptate quibusdam vel facere nulla porro odio
-              maxime. Velit accusantium fugiat eos.
-            </p>
-            <button onclick="EnrollmenProcess.showModal()">
-              Play<i class="material-icons">play_circle_outline</i>
-            </button>
-          </div>
-        </div>
-      </dialog>
-      <dialog id="VideoPlayer">
-        <div class="contentplayer">
-          <h1>Introduction</h1>
-          <iframe src="https://www.youtube.com/embed/7Cj8bsys9aY?autoplay=1">
-          </iframe>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            distinctio accusantium, quam molestiae veniam dicta aliquam odio
-            optio, aspernatur libero assumenda veritatis fugit a itaque ea
-            placeat magni modi. Est!
-          </p>
-          <button onclick="VideoPlayer.close()">close</button>
-        </div>
-      </dialog>
-      <dialog id="EnrollmenProcess">
-        <div class="contentplayer">
-          <h1>Enrollment Process</h1>
-          <iframe src="https://youtube.com/embed/6OiPqWZ5OK8?autoplay=1">
-          </iframe>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            distinctio accusantium, quam molestiae veniam dicta aliquam odio
-            optio, aspernatur libero assumenda veritatis fugit a itaque ea
-            placeat magni modi. Est!
-          </p>
-          <button onclick="EnrollmenProcess.close()">close</button>
-        </div>
-      </dialog>
+      .videos {
+        gap: 20px;
+        display: grid;
+        min-width: 100vh;
+        grid-template-columns: auto auto auto auto;
 
-      <dialog id="OnlineReg">
-        <div class="contentplayer">
-          <h1>Online Registration</h1>
-          <iframe src="https://youtube.com/embed/_psDrS3VUbQ?autoplay=1">
-          </iframe>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            distinctio accusantium, quam molestiae veniam dicta aliquam odio
-            optio, aspernatur libero assumenda veritatis fugit a itaque ea
-            placeat magni modi. Est!
-          </p>
-          <button onclick="OnlineReg.close()">close</button>
-        </div>
-      </dialog>
-    </div>
-    <!-- DIALOG DATAS -->
-    <nav class="LightNav">
-      <a href="Homepage.html">
-        <div class="logo">
-          <img src="assets/images/Korphil logo (icon).png" alt="" />
-          <h1>
-            Regional Training Center
-            <br />
-            KorPhil Davao
-          </h1>
-        </div>
-      </a>
-      <!-- <h1>WELCOME</h1> -->
-      <div class="navBtn">
-        <button>Contact Us</button>
-        <button>About Us</button>
+
+
+        .thumbnail {
+          position: relative;
+          transition: 0.5s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 5px 5px 10px solid black;
+
+          &:hover {
+            scale: 1.05;
+          }
+
+          img {
+            border-radius: 15px;
+            object-fit: cover;
+            height: 250px;
+            width: 450px;
+          }
+
+          .content {
+            border-radius: 15px;
+            height: 250px;
+            width: 450px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            opacity: 0;
+            background: rgba(0, 0, 36, 0.835);
+            transition: 0.6s;
+
+            p {
+              width: 150px;
+              background-color: red;
+              padding: 5px 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-radius: 15px;
+            }
+          }
+
+          .content:hover {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    main {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 60vh;
+      z-index: -10;
+      background-blend-mode: overlay;
+
+      .leftcontent {
+        padding-left: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+
+        .playArea {
+          width: 700px;
+          display: grid;
+          gap: 10px;
+          grid-template-columns: auto auto;
+
+          a {
+            font-weight: 500;
+            text-decoration: none;
+          }
+
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            width: 120px;
+            padding: 10px 10px;
+            transition: 0.5s ease;
+
+            &:hover {
+              scale: 1.05;
+              background-color: rgb(225, 225, 255);
+            }
+          }
+
+          h1 {
+            line-height: 80px;
+            font-size: 70px;
+          }
+
+          p {
+            font-size: 18px;
+          }
+
+          h1,
+          p,
+          h3 {
+            grid-column: 1 / span2;
+          }
+        }
+      }
+
+      .rightcontent {
+        padding-right: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .contentArea {
+          width: 450px;
+
+          h1 {
+            text-align: right;
+            font-size: 70px;
+          }
+
+          p {
+            font-size: 20px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- DIALOG DATAS -->
+  <div class="dialogs">
+    <dialog id="SeeMoreSection" class="SeeMoreSection">
+      <div class="headerSec">
+        <h1>Tutorials</h1>
+        <button onclick="SeeMoreSection.close()">close</button>
       </div>
-    </nav>
 
-    <main>
-      <div class="leftcontent">
-        <div class="playArea">
-          <h1>3 year Diploma Courses</h1>
+      <div class="tutorialCard">
+        <img src="assets/images/OR-Thumbnail.png" alt="" />
+        <div class="details">
+          <h1>Online Registration</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae
-            nemo culpa labore tenetur et maxime alias vel fugiat, provident,
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            repellendus architecto cupiditate vitae! Recusandae, quasi! Sit
+            explicabo error voluptate quibusdam vel facere nulla porro odio
+            maxime. Velit accusantium fugiat eos.
           </p>
-          <h3>Introduction</h3>
-          <button onclick="VideoPlayer.showModal()">
+          <button onclick="OnlineReg.showModal()">
             Play<i class="material-icons">play_circle_outline</i>
           </button>
-          <button>More info<i class="material-icons">info_outline</i></button>
         </div>
       </div>
-      <div class="rightcontent">
-        <div class="contentArea">
-          <h1>WELCOME</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cumque
-            commodi eum facilis ipsa consequatur quas quos exercitationem sequi
-            odit esse voluptatibus explicabo, earum veniam obcaecati officia ex
-            atque voluptate?
-          </p>
-        </div>
-      </div>
-      <div class="videoLibray">
-        <h3>Other Video Tutorial</h3>
-        <div class="videos">
-          <div class="thumbnail" onclick="OnlineReg.showModal()">
-            <img src="assets/images/OR-Thumbnail.png" alt="" />
-            <div class="content">
-              <h1>Register Online</h1>
-              <p>
-                <span>Play Video</span>
-                <i class="material-icons">play_circle_outline</i>
-              </p>
-            </div>
-          </div>
-          <div class="thumbnail" onclick="EnrollmenProcess.showModal()">
-            <img src="assets/images/EP-Thumbnail.jpg" alt="" />
-            <div class="content">
-              <h1>Enrollment Process</h1>
-              <p>
-                <span>Play Video</span>
-                <i class="material-icons">play_circle_outline</i>
-              </p>
-            </div>
-          </div>
-          <div class="thumbnail" onclick="EnrollmenProcess.showModal()">
-            <img
-              src="https://i.ytimg.com/an_webp/6OiPqWZ5OK8/mqdefault_6s.webp?du=3000&sqp=COqL4bUG&rs=AOn4CLDIllV20_SoE9Pk-M2acFjUDBNtEg "
-              alt=""
-            />
-            <div class="content">
-              <h1>Enrollment Process</h1>
-              <p>
-                <span>Play Video</span>
-                <i class="material-icons">play_circle_outline</i>
-              </p>
-            </div>
-          </div>
 
-          <div class="seeAllbtn">
-            <button onclick="SeeMoreSection.showModal()">See All</button>
-          </div>
+      <div class="tutorialCard">
+        <img src="assets/images/EP-Thumbnail.jpg" alt="" />
+        <div class="details">
+          <h1>Enrollment Process</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            repellendus architecto cupiditate vitae! Recusandae, quasi! Sit
+            explicabo error voluptate quibusdam vel facere nulla porro odio
+            maxime. Velit accusantium fugiat eos.
+          </p>
+          <button onclick="EnrollmenProcess.showModal()">
+            Play<i class="material-icons">play_circle_outline</i>
+          </button>
         </div>
       </div>
-    </main>
-  </body>
+      <div class="tutorialCard">
+        <img src="assets/images/EP-Thumbnail.jpg" alt="" />
+        <div class="details">
+          <h1>Enrollment Forms</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            repellendus architecto cupiditate vitae! Recusandae, quasi! Sit
+            explicabo error voluptate quibusdam vel facere nulla porro odio
+            maxime. Velit accusantium fugiat eos.
+          </p>
+          <button onclick="EnrollmenProcess.showModal()">
+            View<i class="material-icons">remove_red_eye</i>
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="VideoPlayer">
+      <div class="contentplayer">
+        <h1>Introduction</h1>
+        <iframe src="https://www.youtube.com/embed/7Cj8bsys9aY?autoplay=1">
+        </iframe>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+          distinctio accusantium, quam molestiae veniam dicta aliquam odio
+          optio, aspernatur libero assumenda veritatis fugit a itaque ea
+          placeat magni modi. Est!
+        </p>
+        <button onclick="VideoPlayer.close()">close</button>
+      </div>
+    </dialog>
+    <dialog id="EnrollmenProcess">
+      <div class="contentplayer" id="Player">
+        <h1>Enrollment Process</h1>
+        <iframe src="https://youtube.com/embed/6OiPqWZ5OK8?autoplay=1">
+        </iframe>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+          distinctio accusantium, quam molestiae veniam dicta aliquam odio
+          optio, aspernatur libero assumenda veritatis fugit a itaque ea
+          placeat magni modi. Est!
+        </p>
+        <button onclick="EnrollmenProcess.close()">close</button>
+      </div>
+    </dialog>
+
+    <dialog id="OnlineReg">
+      <div class="contentplayer">
+        <h1>Online Registration</h1>
+        <iframe src="https://youtube.com/embed/_psDrS3VUbQ?autoplay=1">
+        </iframe>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+          distinctio accusantium, quam molestiae veniam dicta aliquam odio
+          optio, aspernatur libero assumenda veritatis fugit a itaque ea
+          placeat magni modi. Est!
+        </p>
+        <button onclick="OnlineReg.close()">close</button>
+      </div>
+    </dialog>
+
+    <dialog id="player">
+      <div class="contentplayer">
+        <h1 id="modalTitle">/h1>
+          <iframe id="modalVideo" src="">
+          </iframe>
+          <p id="modalDescription">
+          </p>
+          <button onclick="player.close()">close</button>
+      </div>
+    </dialog>
+  </div>
+  <!-- DIALOG DATAS -->
+  <nav class="LightNav">
+    <a href="Homepage.html">
+      <div class="logo">
+        <img src="assets/images/Korphil logo (icon).png" alt="" />
+        <h1>
+          Regional Training Center
+          <br />
+          KorPhil Davao
+        </h1>
+      </div>
+    </a>
+    <!-- <h1>WELCOME</h1> -->
+    <div class="navBtn">
+      <button>Contact Us</button>
+      <button>About Us</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="leftcontent">
+      <div class="playArea">
+        <h1>3 year Diploma Courses</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae
+          nemo culpa labore tenetur et maxime alias vel fugiat, provident,
+        </p>
+        <h3>Introduction</h3>
+        <button onclick="VideoPlayer.showModal()">
+          Play<i class="material-icons">play_circle_outline</i>
+        </button>
+        <button>More info<i class="material-icons">info_outline</i></button>
+      </div>
+    </div>
+    <div class="rightcontent">
+      <div class="contentArea">
+        <h1>WELCOME</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cumque
+          commodi eum facilis ipsa consequatur quas quos exercitationem sequi
+          odit esse voluptatibus explicabo, earum veniam obcaecati officia ex
+          atque voluptate?
+        </p>
+      </div>
+    </div>
+    <div class="videoLibray">
+      <h3>Other Video Tutorial</h3>
+      <div class="videoContainer">
+
+        <div class="videos" id="displayVideo">
+        </div>
+        <div class="seeAllbtn">
+          <button onclick="SeeMoreSection.showModal()">See All</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    let mediafiles = [];
+
+    async function getdata() {
+      // let searchstr = searchInput.value;
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/media.php?action=read`
+      );
+      mediafiles = await response.json();
+      rendermedia();
+    }
+    function rendermedia() {
+      for (const mediafile of mediafiles) {
+
+        displayVideo.innerHTML += `
+                  <div class="thumbnail" onclick="onclick="mediaPlayer(${mediafile.id})">
+            <img src="${mediafile.thumbnail}" alt="" /> 
+            <div class="content">
+              <h1>${mediafile.title}</h1>
+              <p ">
+                <span>Play Video</span>
+                <i class="material-icons">play_circle_outline</i>
+              </p>
+            </div>
+          </div>
+            `;
+
+
+      }
+    }
+    function mediaPlayer(id) {
+      let selectedMedia = mediafiles.find(mediafile => mediafile.id === id);
+
+      if (selectedMedia) {
+        console.log("SELECTED");
+        modalTitle.innerText = selectedMedia.title;
+        modalDescription.innerText = selectedMedia.description;
+        modalVideo.src = selectedMedia.link;
+
+        // Show the modal
+        player.showModal();
+      }
+      else {
+        console.log("NOT SELECTED");
+      }
+    }
+
+
+
+
+    getdata();
+  </script>
+</body>
+
 </html>
