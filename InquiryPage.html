@@ -258,6 +258,26 @@
       }
     }
 
+    #formsView{
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 20px;
+      
+      .formContainer{
+        border-radius: 10px;
+        background-color: rgb(230, 234, 255);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        flex-direction: column;
+        .formImage{
+          img{
+            height: 200px;
+          }
+        }
+      }
+    }
     main {
       color: white;
       display: flex;
@@ -384,7 +404,7 @@
         </div>
       </div>
       <div class="tutorialCard">
-        <img src="assets/images/EP-Thumbnail.jpg" alt="" />
+        <img src="assets/images/EF-Thumbnail.png" alt="" />
         <div class="details">
           <h1>Enrollment Forms</h1>
           <p>
@@ -446,8 +466,24 @@
 
     <dialog id="Forms">
       <div class="contentplayer">
-        <h1>Online Registration</h1>
-        <img src="" alt="">
+        <h1>Enrollment Forms</h1>
+
+        <div id="formsView">
+          <div class="formContainer">
+            <div class="formImage">
+              <img src="http://localhost/rtc.kiosk/assets/images/form/front/white-front.png" alt="">
+              <img src="http://localhost/rtc.kiosk/assets/images/form/back/white-back.png" alt="">
+            </div>
+            <h4>White Form</h4>
+          </div>
+          <div class="formContainer">
+            <div class="formImage">
+              <img src="http://localhost/rtc.kiosk/assets/images/form/front/white-front.png" alt="">
+              <img src="http://localhost/rtc.kiosk/assets/images/form/back/white-back.png" alt="">
+            </div>
+            <h4>White Form</h4>
+          </div>
+        </div>
       
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
@@ -555,16 +591,28 @@
   </main>
   <script>
     let mediafiles = [];
+    let documents = [];
 
-    async function getdata() {
+    async function getmedia() {
       // let searchstr = searchInput.value;
       let response = await fetch(
         `http://localhost/rtc.kiosk/api/media.php?action=read`
       );
       mediafiles = await response.json();
       rendermedia();
+      getDocs();
+    }
+    async function getDocs() {
+      // let searchstr = searchInput.value;
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/docs.php?action=read`
+      );
+      documents = await response.json();
+      rendermedia();
     }
     function rendermedia() {
+      displayVideo.innerHTML = ``;
+      
       for (const mediafile of mediafiles) {
 
         displayVideo.innerHTML += `
@@ -579,8 +627,18 @@
             </div>
           </div>
             `;
-
-
+      }
+      formsView.innerHTML = ``;
+      for (const document of documents) {
+        formsView.innerHTML += `
+        <div class="formContainer">
+            <div class="formImage">
+              <img src="${document.front}" alt="">
+              <img src="${document.back}" alt="">
+            </div>
+            <h4>${document.fileName}</h4>
+          </div>
+            `;
       }
     }
     function mediaPlayer(id) {
@@ -603,7 +661,7 @@
 
 
 
-    // getdata();
+    getmedia();
   </script>
 </body>
 
