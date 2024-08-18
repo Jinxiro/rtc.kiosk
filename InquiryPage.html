@@ -78,15 +78,15 @@
         }
 
         button {
+          text-align: center;
           text-transform: uppercase;
           border: none;
           border-radius: 10px;
           color: white;
           background-color: navy;
           margin: 20px;
-          height: 150;
-          width: 200px;
-          padding: 10px;
+          width: 250px;
+          padding: 20px;
         }
       }
 
@@ -116,7 +116,6 @@
         .tutorialCard {
           margin-bottom: 10px;
           padding: 1px 10px;
-          
           background-image: linear-gradient(to left, rgb(234, 234, 234), rgb(229, 234, 253));
           border-radius: 10px;
           display: flex;
@@ -435,20 +434,7 @@
         <h1>Enrollment Forms</h1>
 
         <div id="formsView">
-          <div class="formContainer">
-            <div class="formImage">
-              <img src="http://localhost/rtc.kiosk/assets/images/form/front/white-front.png" alt="">
-              <img src="http://localhost/rtc.kiosk/assets/images/form/back/white-back.png" alt="">
-            </div>
-            <h4>White Form</h4>
-          </div>
-          <div class="formContainer">
-            <div class="formImage">
-              <img src="http://localhost/rtc.kiosk/assets/images/form/front/white-front.png" alt="">
-              <img src="http://localhost/rtc.kiosk/assets/images/form/back/white-back.png" alt="">
-            </div>
-            <h4>White Form</h4>
-          </div>
+          
         </div>
       
         <p>
@@ -457,7 +443,10 @@
           optio, aspernatur libero assumenda veritatis fugit a itaque ea
           placeat magni modi. Est!
         </p>
-        <button onclick="EFkey.close()">close</button>
+        <div class="formsBtn">
+          <button onclick="EFkey.close()">close</button>
+          <a href="Documentation.html"><button>Full Documentation</button></a>
+        </div>
       </div>
     </dialog>
   </div>
@@ -604,9 +593,6 @@
         console.log("NOT SELECTED");
       }
     }
-
-
-
 
     getmedia();
   </script>
