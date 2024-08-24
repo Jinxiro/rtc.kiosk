@@ -24,6 +24,19 @@
       background: rgb(210, 177, 255);
     }
   }
+  .sideBar{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sidebtns{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: left;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  }
   main {
     .greet {
       display: flex;
