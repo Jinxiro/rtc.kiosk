@@ -11,7 +11,7 @@
   <body>
     <div class="sideBar">
       <div class="sidebtns">
-        <button>Introduction</button>
+        <button onclick="scrollPage(greet)">Introduction</button>
         <button>Programm Offers</button>
         <button>Where to GO?</button>
         <button>Enrollment Process</button>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <main>
-      <div class="greet">
+      <div class="greet" id="greet">
         <div class="greetContents">
           <h1>Hello, Student!</h1>
           <p>
@@ -261,6 +261,11 @@
               `;
         }
       }
+
+      function scrollPage(sectionId) {
+    const section = sectionId;
+    section.scrollIntoView({ behavior: 'smooth' });
+}
 
       getmedia();
     </script>
