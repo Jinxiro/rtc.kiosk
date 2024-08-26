@@ -11,10 +11,10 @@
   <body>
     <div class="sideBar">
       <div class="sidebtns">
-        <button onclick="scrollPage(greet)">Introduction</button>
-        <button>Programm Offers</button>
-        <button>Where to GO?</button>
-        <button>Enrollment Process</button>
+        <a href="#greet"><button>Introduction</button></a>
+        <a href="#offeredProgram"><button>Programm Offers</button></a>
+        <a href="#enrollmentforms"><button>Where to GO?</button></a>
+        <a href="#forms"><button>Enrollment Process</button></a>
         <button>3-Year Diploma Courses</button>
         <button>Short-Term</button>
         <button>Community-Based Skills Training</button>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <main>
-      <div class="greet" id="greet">
+      <section class="greet" id="greet">
         <div class="greetContents">
           <h1>Hello, Student!</h1>
           <p>
@@ -36,9 +36,9 @@
             <a href="InquiryPage.html"><button>Inquiry Page</button></a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="offeredProgram">
+      <section class="offeredProgram" id="offeredProgram">
         <h1>PROGRAM OFFERINGS</h1>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -88,9 +88,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="enrollmentforms">
+      <section class="enrollmentforms" id="enrollmentforms">
         <div class="leftContents">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -104,9 +104,9 @@
         <div class="rightcontent">
           <img src="assets/images/Videotutorial.png" alt="" />
         </div>
-      </div>
+      </section>
 
-      <div class="wtg">
+      <section class="wtg" id="wtg">
         <h1>Where to <span style="color: navy">GO?</span></h1>
         <div class="facilities">
           <div class="location">
@@ -115,18 +115,12 @@
               alt=""
             />
             <div class="details">
-              <h1>TITLE</h1>
+              <h1>Admin Building</h1>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non
-                repellendus labore numquam. Totam itaque ea aut? Beatae, id eos
-                perspiciatis deserunt alias, magnam, ipsam aliquam distinctio
-                molestiae dolorum magni sit.
+                Once you arrive at the Korphil Davao campus, your first step will be to locate the Admin Building. This is where the administrative offices are housed, and it's your key starting point for the enrollment process. If you're unfamiliar with the campus, feel free to ask for directions from any staff or students you encounter—they’ll be happy to guide you.
               </p>
               <p class="visayan">
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Magni, ratione atque molestiae ut debitis perferendis hic quidem
-                quisquam blanditiis doloribus alias suscipit iure ex itaque
-                explicabo quaerat ea nulla sint."
+                "Pag-abot nimo sa Korphil Davao campus, ang una nimo buhaton mao ang pagpangita sa Admin Building. Dinhi makita ang mga opisina sa administrasyon, ug kini ang imung unang lakang alang sa enrollment process. Kung wala kay klaro nga ideya sa lugar, pwede ka mangutana sa mga empleyado o estudyante nga imong makit-an para sa mga direksyon—sigurado nga andam sila mutabang nimo."
               </p>
             </div>
           </div>
@@ -137,18 +131,12 @@
                 alt=""
               />
               <div class="details">
-                <h1>TITLE</h1>
+                <h1>Left Turn</h1>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non
-                  repellendus labore numquam. Totam itaque ea aut? Beatae, id
-                  eos perspiciatis deserunt alias, magnam, ipsam aliquam
-                  distinctio molestiae dolorum magni sit.
+                  After entering the Admin Building, you will need to turn left to locate the Training Department. This department manages all aspects of training and student enrollments.
                 </p>
                 <p class="visayan">
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Magni, ratione atque molestiae ut debitis perferendis hic
-                  quidem quisquam blanditiis doloribus alias suscipit iure ex
-                  itaque explicabo quaerat ea nulla sint."
+                  "Pag-sulod nimo sa Admin Building, liko sa wala aron makit-an nimo ang Training Department. Ang departmento nga kini ang nagdumala sa tanan nga bahin sa training ug student enrollments."
                 </p>
               </div>
             </div>
@@ -160,18 +148,12 @@
                 alt=""
               />
               <div class="details">
-                <h1>TITLE</h1>
+                <h1>Hallway</h1>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non
-                  repellendus labore numquam. Totam itaque ea aut? Beatae, id
-                  eos perspiciatis deserunt alias, magnam, ipsam aliquam
-                  distinctio molestiae dolorum magni sit.
+                  walk down the hallway and look for the second door on your right—this is the entrance to the Training Department. For your convenience, the names of each room are clearly displayed on signs located above the doors. Look for the sign that says "Training Department" to ensure you're in the right place.
                 </p>
                 <p class="visayan">
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Magni, ratione atque molestiae ut debitis perferendis hic
-                  quidem quisquam blanditiis doloribus alias suscipit iure ex
-                  itaque explicabo quaerat ea nulla sint."
+                  "Paglakaw sa Hallway ug pangitaa ang ikaduhang pultahan sa imong tuo—mao kini ang Training Department. Para sa imong kaginhawaan, ang mga ngalan sa matag kwarto makita sa ibabaw nga bahin sa pultahan. Pangitaa ang ngalan nga "Training Department" aron masiguro nga naa ka sa sakto nga dapit."
                 </p>
               </div>
             </div>
@@ -183,25 +165,20 @@
                 alt=""
               />
               <div class="details">
-                <h1>TITLE</h1>
+                <h1>Training Department</h1>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non
-                  repellendus labore numquam. Totam itaque ea aut? Beatae, id
-                  eos perspiciatis deserunt alias, magnam, ipsam aliquam
-                  distinctio molestiae dolorum magni sit.
+                  After entering the Training Department, approach the staff and ask for assistance with the enrollment process. They will guide you through the necessary steps, including any paperwork and requirements you need to fulfill.
                 </p>
                 <p class="visayan">
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Magni, ratione atque molestiae ut debitis perferendis hic
-                  quidem quisquam blanditiis doloribus alias suscipit iure ex
-                  itaque explicabo quaerat ea nulla sint."
+                  "Pag-sulod nimo sa Training Department, duola ang mga staff ug pangutana bahin sa enrollment process. I-guide ka nila sa mga kinahanglan buhaton, lakip na ang mga papeles ug mga requirements nga kinahanglan nimo kumplituhon."
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="forms">
+      </section>
+
+      <section class="forms" id="forms">
         <h1>Enrollment Process</h1>
 
         <div class="formsContainer" id="formsContainer">
@@ -222,7 +199,7 @@
             <h3 style="background-color: skyblue">Blue Form</h3>
           </div>
         </div>
-      </div>
+      </section>
     </main>
     <script>
       let mediafiles = [];
@@ -264,7 +241,6 @@
 
       function scrollPage(sectionId) {
     const section = sectionId;
-    section.scrollIntoView({ behavior: 'smooth' });
 }
 
       getmedia();
