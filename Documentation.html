@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="assets/fulldoc.css" />
+    <!-- <link rel="stylesheet" href="assets/style.css" /> -->
+    <link rel="stylesheet" href="assets/fulldoc.css"/>
     <title>Full Guide</title>
   </head>
 
   <body>
+    <div class="bodyContainer">
     <div class="sideBar">
       <div class="sidebtns">
         <a href="#greet"><button>Introduction</button></a>
@@ -17,7 +18,9 @@
         <a href="#forms"><button>Enrollment Process</button></a>
         <a href="#diploma"><button>3-Year Diploma Courses</button></a>
         <a href="#shortTerm"><button>Short-Term</button></a>
-       <a href="#communityBased"><button>Community-Based Skills Training</button></a>
+        <a href="#communityBased"
+          ><button>Community-Based Skills Training</button></a
+        >
         <a href="#contact"><button>Contact and Support</button></a>
         <a href="#feedBack"><button>Feedback and Suggestions</button></a>
       </div>
@@ -235,23 +238,23 @@
         <h1>3-Year Diploma Courses</h1>
       </section>
 
-      <section class="shortTerm">
+      <section class="shortTerm" id="shortTerm">
         <h1>Short-Term/Skills Upgrading Programs</h1>
       </section>
 
-      <section class="communityBased">
+      <section class="communityBased" id="communityBased">
         <h1>Community-Based Skills Training</h1>
       </section>
 
-      <section class="contact">
+      <section class="contact" id="contact">
         <h1>Contact and Support</h1>
       </section>
 
-      <section class="feedBack">
+      <section class="feedBack" id="feedBack">
         <h1>Feedback and Suggestions</h1>
       </section>
-
     </main>
+  </div>
     <script>
       let mediafiles = [];
       let documents = [];

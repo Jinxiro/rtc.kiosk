@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', 'San Serif';
   }
   html{
     scroll-behavior: smooth;
   }
   body{
+    
     &::-webkit-scrollbar {
       width: 10px;
     }
@@ -27,11 +31,13 @@
       background: rgb(210, 177, 255);
     }
   }
-  .sideBar{
-    position: absolute;
+  .bodyContainer{
     display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  .sideBar{
+    position: sticky;
+   top: 0;
+   height: 100vh;
     .sidebtns{
       display: flex;
       justify-content: space-evenly;
@@ -304,6 +310,18 @@
       min-height: 100vh;
     }
     .communityBased{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .contact{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .feedBack{
       display: flex;
       justify-content: center;
       align-items: center;
