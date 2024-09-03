@@ -36,14 +36,28 @@
   }
   .sideBar{
     position: sticky;
-   top: 0;
-   height: 100vh;
-    .sidebtns{
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 255, 255, 0.381);
+    backdrop-filter: blur(10px);
+
+    .sidebtns{  
       display: flex;
-      justify-content: space-evenly;
-      align-items: left;
-      min-height: 100vh;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      a{
+        
+        padding: 20px 50px;
+        img{
+          height: 25px;
+        }
+        &:active{
+          border-bottom: 2px solid navy;
+        }
+      }
     }
   }
   main {
@@ -290,7 +304,7 @@
             align-items: center;
             img{
               box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.284);
-              height: 200px;
+              height: 250px;
             }
           }
         }
