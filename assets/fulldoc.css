@@ -366,7 +366,7 @@ main {
             width: 200px;
             border-radius: 20px;
           }
-          
+
           .formImages {
             display: flex;
             justify-content: center;
@@ -379,15 +379,16 @@ main {
           }
         }
       }
+
       .formDescription {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         flex-direction: column;
-        svg{
-          position: absolute;
-          z-index: -1;
+        .note {
+          text-align: center;
+          width: 800px;
         }
         .frontContent,
         .backContent {
@@ -395,21 +396,30 @@ main {
           display: flex;
           align-items: center;
           justify-content: center;
-        
-        .txt{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          
-        }
+          .formImg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          svg {
+            height: 800px;
+            position: absolute;
+          }
+          .txt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+          }
         }
         .backContent {
           flex-direction: row-reverse;
         }
         img {
           height: 500px;
+          z-index: 10;
         }
-        
+
         p {
           margin: 20px;
           width: 500px;
@@ -421,7 +431,7 @@ main {
           font-size: 80px;
         }
         iframe {
-          margin: 50px 0px;
+          margin: 30px 0px;
           height: 800px;
           width: 1500px;
           border: none;
@@ -449,11 +459,47 @@ main {
     min-height: 100vh;
   }
   .contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  .head{
+    text-align: center;
   }
+    .contentCards{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+    .callUs, .emailUS {
+      height: 600px;
+      width: 700px;
+      margin: 20px;
+      background-color: whitesmoke;
+      padding: 20px;
+      
+      .cardHeader{
+        font-size: 50px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        img{
+          margin: 5px;
+          height: 50px;
+        }
+      }
+      .details {
+        display: grid;
+        grid-template-columns: auto auto;
+        .contactCard, .EmailCard {
+          width: 320px;
+          padding: 20px;
+          background-color: white;
+          margin: 5px;
+        }
+        .EmailCard{
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+}
   .feedBack {
     display: flex;
     justify-content: center;
