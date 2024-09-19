@@ -34,7 +34,7 @@ body {
   display: flex;
 }
 .sideBar {
-  z-index: 1;
+  z-index: 100;
   position: sticky;
   top: 0;
   display: flex;
@@ -459,23 +459,43 @@ main {
     min-height: 100vh;
   }
   .contact {
+    background-image: linear-gradient(to bottom, transparent, rgb(79, 79, 255) 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
   .head{
     text-align: center;
   }
     .contentCards{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: auto auto;
+      .maps{
+
+        height: 280px;
+        width: auto;
+        grid-column: 1 / span 2;
+        display: flex;
+        justify-content: center;
+        iframe{
+          border: none;
+          border-radius: 10px;
+          width: 100%;
+        }
+      }
   
     .callUs, .emailUS {
-      height: 600px;
+      height: 500px;
       width: 700px;
-      margin: 20px;
       background-color: whitesmoke;
       padding: 20px;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.165);
       
       .cardHeader{
-        font-size: 50px;
+        font-size: 50px;  
         display: flex;
         justify-content: left;
         align-items: center;
@@ -489,9 +509,15 @@ main {
         grid-template-columns: auto auto;
         .contactCard, .EmailCard {
           width: 320px;
-          padding: 20px;
+          padding: 10px;
           background-color: white;
           margin: 5px;
+          h1{
+            font-size: 20px;
+          }
+          p{
+            font-size: 14px;
+          }
         }
         .EmailCard{
           word-wrap: break-word;
@@ -505,5 +531,6 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color:  rgb(79, 79, 255);
   }
 }
