@@ -447,6 +447,12 @@ main {
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
+    svg{
+      z-index: -1;
+      position: absolute;
+      margin: auto;
+      height: 1700px;
+    }
     h1 {
       font-size: 50px;
       margin: 20px;
@@ -454,7 +460,7 @@ main {
     .bodyCourse {
       padding: 40px;
       border-radius: 20px;
-      background-color: white;
+
       iframe {
         height: 600px;
         width: 1200px;
@@ -463,8 +469,10 @@ main {
       }
       .programdetails {
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        max-width: 1300px;
+        max-width: 1200px;
         .courseCard {
           margin: 10px;
           display: flex;
@@ -474,7 +482,7 @@ main {
           h3{
             position: absolute;
             text-align: center;
-            width: 200px;
+            width: 300px;
             font-size: 40px;
             color: white;
           }
@@ -497,7 +505,7 @@ main {
             filter: brightness(50%);
             position: relative;
             border-radius: 10px;
-            height: 400px;
+            height: 350px;
             width: 200px;
             object-fit: cover;
             transition: 0.5s ease;
@@ -520,18 +528,209 @@ main {
         }
       }
     }
+    button{
+      padding: 30px;
+      width: 500px;
+      background-color: navy;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+    }
   }
   .shortTerm {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
+    svg{
+      z-index: -1;
+      position: absolute;
+      margin: auto;
+      height: 1700px;
+    }
+    h1 {
+      font-size: 50px;
+      margin: 20px;
+    }
+    .bodyCourse {
+      padding: 40px;
+      border-radius: 20px;
+
+      iframe {
+        height: 600px;
+        width: 1200px;
+        border: none;
+        border-radius: 20px;
+      }
+      .programdetails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        .courseCard {
+          margin: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          h3{
+            position: absolute;
+            text-align: center;
+            width: 300px;
+            font-size: 40px;
+            color: white;
+          }
+          p{
+            display: none;
+            font-size: 16px;
+            width: 450px;
+            color: white;
+            position: absolute;
+            z-index: 1;
+            transition: 0.5s ease;
+            width: 450px;
+            text-align: center;
+            span{
+              font-weight: 700;
+              font-size: 25px;
+            }
+          }
+          img {
+            filter: brightness(50%);
+            position: relative;
+            border-radius: 10px;
+            height: 350px;
+            width: 200px;
+            object-fit: cover;
+            transition: 0.5s ease;
+          }
+
+          &:hover {
+            transition: 0.5s;
+            cursor: pointer;
+            img {
+              width: 500px;
+            }
+            h3{
+              display: none;
+            }
+            p{
+              display: block;
+            }
+          }
+         
+        }
+      }
+    }
+    button{
+      padding: 30px;
+      width: 500px;
+      background-color: navy;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+    }
   }
   .communityBased {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
+    svg{
+      z-index: -1;
+      position: absolute;
+      margin: auto;
+      height: 1700px;
+    }
+    h1 {
+      font-size: 50px;
+      margin: 20px;
+    }
+    .bodyCourse {
+      padding: 40px;
+      border-radius: 20px;
+
+      iframe {
+        height: 600px;
+        width: 1200px;
+        border: none;
+        border-radius: 20px;
+      }
+      .programdetails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        .courseCard {
+          margin: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          h3{
+            position: absolute;
+            text-align: center;
+            width: 300px;
+            font-size: 40px;
+            color: white;
+          }
+          p{
+            display: none;
+            font-size: 16px;
+            width: 450px;
+            color: white;
+            position: absolute;
+            z-index: 1;
+            transition: 0.5s ease;
+            width: 450px;
+            text-align: center;
+            span{
+              font-weight: 700;
+              font-size: 25px;
+            }
+          }
+          img {
+            filter: brightness(50%);
+            position: relative;
+            border-radius: 10px;
+            height: 350px;
+            width: 200px;
+            object-fit: cover;
+            transition: 0.5s ease;
+          }
+
+          &:hover {
+            transition: 0.5s;
+            cursor: pointer;
+            img {
+              width: 500px;
+            }
+            h3{
+              display: none;
+            }
+            p{
+              display: block;
+            }
+          }
+         
+        }
+      }
+    }
+    button{
+      padding: 30px;
+      width: 500px;
+      background-color: navy;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+    }
   }
   .contact {
     background-image: linear-gradient(
