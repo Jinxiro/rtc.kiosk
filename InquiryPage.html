@@ -398,61 +398,23 @@
       </div>
     </dialog>
 
-    <dialog id="EPkey">
+    <dialog id="videoModal">
       <div class="contentplayer" id="Player">
-        <h1>Enrollment Process</h1>
-        <iframe src="https://youtube.com/embed/6OiPqWZ5OK8?autoplay=1">
+        <h1 id="ContentTitle">Enrollment Process</h1>
+        <iframe id="videoLink" src="https://youtube.com/embed/6OiPqWZ5OK8?autoplay=1">
         </iframe>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-          distinctio accusantium, quam molestiae veniam dicta aliquam odio
-          optio, aspernatur libero assumenda veritatis fugit a itaque ea
-          placeat magni modi. Est!
+        <p id="contentDescription">
         </p>
         <div class="formsBtn">
-          <button onclick="EPkey.close()">close</button>
+          <button onclick="videoModal.close()">close</button>
           <a href="Documentation.html"><button>Full Documentation</button></a>
         </div>
       </div>
     </dialog>
 
-    <dialog id="ORkey">
-      <div class="contentplayer">
-        <h1>Online Registration</h1>
-        <iframe src="https://youtube.com/embed/_psDrS3VUbQ?autoplay=1">
-        </iframe>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-          distinctio accusantium, quam molestiae veniam dicta aliquam odio
-          optio, aspernatur libero assumenda veritatis fugit a itaque ea
-          placeat magni modi. Est!
-        </p>
-        <div class="formsBtn">
-          <button onclick="ORkey.close()">close</button>
-          <a href="Documentation.html"><button>Full Documentation</button></a>
-        </div>
-      </div>
-    </dialog>
+    
 
-    <dialog id="EFkey">
-      <div class="contentplayer">
-        <h1>Enrollment Forms</h1>
-        <iframe src="https://youtube.com/embed/dk4YijfVdJQ?autoplay=1">
-        </iframe>
-      
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-          distinctio accusantium, quam molestiae veniam dicta aliquam odio
-          optio, aspernatur libero assumenda veritatis fugit a itaque ea
-          placeat magni modi. Est!
-        </p>
-        <div class="formsBtn">
-          <button onclick="EFkey.close()">close</button>
-          <a href="Documentation.html"><button>Full Documentation</button></a>
-        </div>
-      </div>
-    </dialog>
-  </div>
+    
   <!-- DIALOG DATAS -->
   <nav class="LightNav">
     <a href="Homepage.html">
@@ -512,32 +474,25 @@
   </main>
   <script>
     let mediafiles = [];
-    let documents = [];
+    let currentMedia;
 
     async function getmedia() {
       // let searchstr = searchInput.value;
       let response = await fetch(
-        `http://localhost/rtc.kiosk/api/media.php?action=read`
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=media`
       );
       mediafiles = await response.json();
       rendermedia();
-      getDocs();
     }
-    async function getDocs() {
-      // let searchstr = searchInput.value;
-      let response = await fetch(
-        `http://localhost/rtc.kiosk/api/docs.php?action=read`
-      );
-      documents = await response.json();
-      rendermedia();
-    }
+    
+
     function rendermedia() {
       displayVideo.innerHTML = ``;
       for (const mediafile of mediafiles) {
 
         displayVideo.innerHTML += `
-                  <div class="thumbnail" onclick="${mediafile.modalKey}.showModal()">
-            <img src="${mediafile.thumbnail}" alt=""/> 
+                  <div class="thumbnail" onclick="mediaPlayer(${mediafile.id})">
+            <img src="http://localhost/rtc.kiosk/assets/images/${mediafile.thumbnail}" alt=""/> 
             <div class="content">
               <h1>${mediafile.title}</h1>
               <p ">
@@ -554,13 +509,13 @@
 
         tutorialContainer.innerHTML += `
                   <div class="tutorialCard">
-        <img src="${mediafile.thumbnail}" alt="" />
+        <img src="http://localhost/rtc.kiosk/assets/images/${mediafile.thumbnail}" alt="" />
         <div class="details">
           <h1>${mediafile.title}</h1>
           <p>
             ${mediafile.description}
           </p>
-          <button onclick="${mediafile.modalKey}.showModal()">
+          <button onclick="mediaPlayer(${mediafile.id})">
             View<i class="material-icons">remove_red_eye</i>
           </button>
         </div>
@@ -570,20 +525,12 @@
       
     }
     function mediaPlayer(id) {
-      let selectedMedia = mediafiles.find(mediafile => mediafile.id === id);
-
-      if (selectedMedia) {
-        console.log("SELECTED");
-        modalTitle.innerText = selectedMedia.title;
-        modalDescription.innerText = selectedMedia.description;
-        modalVideo.src = selectedMedia.link;
-
-        // Show the modal
-        player.showModal();
-      }
-      else {
-        console.log("NOT SELECTED");
-      }
+      currentMedia = mediafiles.find( mediafile => mediafile.id == id);
+      ContentTitle.innerHTML = currentMedia.title;
+      videoLink.src = `https://www.youtube.com/embed/${currentMedia.link}?autoplay=1`;
+      contentDescription.innerHTML = currentMedia.description;
+      videoModal.showModal();
+      
     }
 
     getmedia();

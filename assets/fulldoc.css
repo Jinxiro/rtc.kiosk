@@ -510,20 +510,6 @@ main {
             object-fit: cover;
             transition: 0.5s ease;
           }
-
-          &:hover {
-            transition: 0.5s;
-            cursor: pointer;
-            img {
-              width: 500px;
-            }
-            h3{
-              display: none;
-            }
-            p{
-              display: block;
-            }
-          }
          
         }
       }
@@ -564,7 +550,7 @@ main {
         border: none;
         border-radius: 20px;
       }
-      .programdetails {
+      #programdetails {
         display: flex;
         justify-content: center;
         align-items: center;
