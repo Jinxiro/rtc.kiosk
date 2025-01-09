@@ -24,3 +24,15 @@ $dsn = "mysql:
         $results = $conn->query("SELECT * FROM `docs` WHERE `fileName` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
+    if ($action == "shortterm"){
+        $results = $conn->query("SELECT * FROM `short_term_course` WHERE `certification` LIKE '$search'")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "CBT_MTP"){
+        $results = $conn->query("SELECT * FROM `community_based` WHERE `certification` LIKE '$search' AND `program` LIKE 'Mobile Training Program (MTP)'")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "CBT_MNTR"){
+        $results = $conn->query("SELECT * FROM `community_based` WHERE `certification` LIKE '$search'")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }

@@ -7,6 +7,10 @@
   font-family: "Poppins", "San Serif";
   /* outline: 1px solid black; */
 }
+dialog {
+  padding: 20px;
+  margin: auto;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -60,6 +64,7 @@ body {
     }
   }
 }
+
 main {
   .greet {
     display: flex;
@@ -445,9 +450,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 120vh;
     flex-direction: column;
-    svg{
+    svg {
       z-index: -1;
       position: absolute;
       margin: auto;
@@ -479,14 +484,17 @@ main {
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          h3{
+
+          h3 {
+            word-wrap: break-word;
+
             position: absolute;
             text-align: center;
             width: 300px;
-            font-size: 40px;
+            font-size: 30px;
             color: white;
           }
-          p{
+          p {
             display: none;
             font-size: 16px;
             width: 450px;
@@ -496,7 +504,7 @@ main {
             transition: 0.5s ease;
             width: 450px;
             text-align: center;
-            span{
+            span {
               font-weight: 700;
               font-size: 25px;
             }
@@ -505,16 +513,15 @@ main {
             filter: brightness(50%);
             position: relative;
             border-radius: 10px;
-            height: 350px;
+            height: 200px;
             width: 200px;
             object-fit: cover;
             transition: 0.5s ease;
           }
-         
         }
       }
     }
-    button{
+    button {
       padding: 30px;
       width: 500px;
       background-color: navy;
@@ -524,110 +531,14 @@ main {
       font-size: 20px;
     }
   }
+
   .shortTerm {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 120vh;
     flex-direction: column;
-    svg{
-      z-index: -1;
-      position: absolute;
-      margin: auto;
-      height: 1700px;
-    }
-    h1 {
-      font-size: 50px;
-      margin: 20px;
-    }
-    .bodyCourse {
-      padding: 40px;
-      border-radius: 20px;
-
-      iframe {
-        height: 600px;
-        width: 1200px;
-        border: none;
-        border-radius: 20px;
-      }
-      #programdetails {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        .courseCard {
-          margin: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          h3{
-            position: absolute;
-            text-align: center;
-            width: 300px;
-            font-size: 40px;
-            color: white;
-          }
-          p{
-            display: none;
-            font-size: 16px;
-            width: 450px;
-            color: white;
-            position: absolute;
-            z-index: 1;
-            transition: 0.5s ease;
-            width: 450px;
-            text-align: center;
-            span{
-              font-weight: 700;
-              font-size: 25px;
-            }
-          }
-          img {
-            filter: brightness(50%);
-            position: relative;
-            border-radius: 10px;
-            height: 350px;
-            width: 200px;
-            object-fit: cover;
-            transition: 0.5s ease;
-          }
-
-          &:hover {
-            transition: 0.5s;
-            cursor: pointer;
-            img {
-              width: 500px;
-            }
-            h3{
-              display: none;
-            }
-            p{
-              display: block;
-            }
-          }
-         
-        }
-      }
-    }
-    button{
-      padding: 30px;
-      width: 500px;
-      background-color: navy;
-      color: white;
-      border: none;
-      border-radius: 15px;
-      font-size: 20px;
-    }
-  }
-  .communityBased {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    svg{
+    svg {
       z-index: -1;
       position: absolute;
       margin: auto;
@@ -654,61 +565,27 @@ main {
         flex-wrap: wrap;
         max-width: 1200px;
         .courseCard {
-          margin: 10px;
-          display: flex;
-          justify-content: center;
+          margin: 20px;
           align-items: center;
-          flex-direction: column;
-          h3{
-            position: absolute;
-            text-align: center;
-            width: 300px;
-            font-size: 40px;
+          justify-content: center;
+          display: grid;
+          gap: 10px;
+          grid-template-columns: 500px 500px;
+          h2 {
             color: white;
-          }
-          p{
-            display: none;
-            font-size: 16px;
-            width: 450px;
-            color: white;
-            position: absolute;
-            z-index: 1;
-            transition: 0.5s ease;
-            width: 450px;
-            text-align: center;
-            span{
-              font-weight: 700;
-              font-size: 25px;
-            }
-          }
-          img {
-            filter: brightness(50%);
-            position: relative;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.111);
+            padding: 20px;
             border-radius: 10px;
-            height: 350px;
-            width: 200px;
-            object-fit: cover;
-            transition: 0.5s ease;
-          }
-
-          &:hover {
-            transition: 0.5s;
-            cursor: pointer;
-            img {
-              width: 500px;
-            }
-            h3{
-              display: none;
-            }
-            p{
-              display: block;
+            background-color: rgb(32, 0, 51);
+            &:hover {
+              cursor: pointer;
+              background-color: rgb(63, 1, 99);
             }
           }
-         
         }
       }
     }
-    button{
+    button {
       padding: 30px;
       width: 500px;
       background-color: navy;
@@ -718,6 +595,158 @@ main {
       font-size: 20px;
     }
   }
+  #shorterModal {
+    width: 800px;
+    height: 1000px;
+    #shortermTbl {
+      background-color: whitesmoke;
+      tr {
+        &:hover {
+          background-color: rgb(207, 207, 207);
+        }
+      }
+      th {
+        text-align: center;
+        padding: 15px;
+      }
+      td {
+        width: 200px;
+        padding: 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  .communityBased {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh;
+    flex-direction: column;
+    svg {
+      z-index: -1;
+      position: absolute;
+      margin: auto;
+      height: 1700px;
+    }
+    h1 {
+      font-size: 50px;
+      margin: 20px;
+    }
+    .bodyCourse {
+      padding: 40px;
+      border-radius: 20px;
+
+      iframe {
+        height: 600px;
+        width: 1200px;
+        border: none;
+        border-radius: 20px;
+      }
+      .programdetails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        .courseCard {
+          margin: 20px;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          grid-template-columns: 600px 600px;
+          gap: 10px;
+
+          .left {
+            width: 600px;
+            h1 {
+              text-align: center;
+              font-size: 30px;
+            }
+            .btns {
+              align-items: center;
+              justify-content: center;
+              display: grid;
+              grid-template-columns: 250px 250px;
+              gap: 10px;
+              h3 {
+                border-radius: 10px;
+                color: white;
+                background-color: navy;
+                padding: 15px;
+                text-align: center;
+                background-color: rgb(32, 0, 51);
+                &:hover {
+                  cursor: pointer;
+                  background-color: rgb(63, 1, 99);
+                }
+              }
+            }
+          }
+
+          .right {
+            width: 600px;
+            h1 {
+              text-align: center;
+              font-size: 30px;
+            }
+            .btns {
+              align-items: center;
+              justify-content: center;
+              display: grid;
+              grid-template-columns: 280px 280px;
+              gap: 10px;
+              h3 {
+                border-radius: 10px;
+                font-size: 15px;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                background-color: rgb(32, 0, 51);
+                &:hover {
+                  cursor: pointer;
+                  background-color: rgb(63, 1, 99);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    button {
+      padding: 30px;
+      width: 500px;
+      background-color: navy;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+    }
+  }
+  #cbtModal {
+    width: 1000px;
+    height: 1000px;
+    #cbtTbl {
+      background-color: whitesmoke;
+      tr {
+        &:hover {
+          background-color: rgb(207, 207, 207);
+        }
+      }
+      th {
+        text-align: center;
+        padding: 15px;
+      }
+      td {
+        width: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+
+
   .contact {
     background-image: linear-gradient(
       to bottom,
