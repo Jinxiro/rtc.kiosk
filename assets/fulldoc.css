@@ -431,6 +431,33 @@ main {
           width: 500px;
         }
       }
+      .formParts {
+        .parts {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          h1{
+            text-transform: uppercase;
+            margin-bottom: 20px;
+          }
+          .cebuano{
+            font-size: 18px;
+
+            margin: 10px;
+       font-style: italic;
+          }
+          p {
+            font-size: 20px;
+            width: 1200px;
+            text-align: justify;
+            text-justify: inter-word;
+          }
+          img {
+            width: 1200px;
+          }
+        }
+      }
       .videoTutorial {
         margin-top: 50px;
         h1 {
@@ -745,8 +772,6 @@ main {
     }
   }
 
-
-
   .contact {
     background-image: linear-gradient(
       to bottom,
@@ -820,25 +845,38 @@ main {
       }
     }
   }
-  .feedBack{
+  .feedBack {
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    #pdfViewer{
+    #pdfViewer {
       height: 1200px;
       width: 1900px;
-      embed{
+      embed {
         height: 100%;
         width: 100%;
       }
     }
-    footer{
-      
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 40px;
+      }
+      button {
+        padding: 30px;
+        width: 500px;
+        background-color: navy;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+      }
     }
-    
   }
-
-
 }
