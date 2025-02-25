@@ -851,12 +851,26 @@ main {
     justify-content: center;
     align-items: center;
     background-color: white;
-    #pdfViewer {
-      height: 1200px;
+    #pdfViewer{
+      padding: 10px;
+      border: none;
+      height: 1000px;
       width: 1900px;
-      embed {
-        height: 100%;
+      embed{
+        height: 95%;
         width: 100%;
+      }
+      .closebtn{
+        display: flex;
+        width: 100%;
+        button{
+          border-radius: 10px;
+          width: 200px;
+          margin: auto;
+          padding: 10px;
+          color: white;
+          background-color: navy;
+        }
       }
     }
 

@@ -158,11 +158,19 @@
           <p>Register</p>
         </div>
 
-        <div class="btn" onclick="feedBackForm.showModal()">
+        <div class="btn" onclick="pdfViewer.showModal()">
           <img src="assets/images/Icons/feedback-alt.svg" alt="" />
           <p>Feed back</p>
+          
         </div>
+        
       </div>
+      <dialog id="pdfViewer">
+        <embed src="assets/Feedback Form (Fillable).pdf" type="">
+          <div class="closebtn">
+            <button  onclick="pdfViewer.close()" >close</button>
+          </div>
+        </dialog>
     </main>
   </body>
 </html>

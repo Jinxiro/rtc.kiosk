@@ -224,6 +224,31 @@
       }
     }
 
+
+#pdfViewer{
+  padding: 10px;
+  border: none;
+  height: 1000px;
+  width: 1900px;
+  embed{
+    height: 95%;
+    width: 100%;
+  }
+  .closebtn{
+    display: flex;
+    width: 100%;
+    button{
+      border-radius: 10px;
+      width: 200px;
+      margin: auto;
+      padding: 10px;
+      color: white;
+      background-color: navy;
+    }
+  }
+}
+
+
     .roteteShape {
       height: 100px;
       width: 100px;
@@ -272,4 +297,5 @@
         width: 500px;
       }
     }
+    
   }
