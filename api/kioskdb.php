@@ -17,7 +17,7 @@ $dsn = "mysql:
     }
 
     if ($action == "course"){
-        $results = $conn->query("SELECT * FROM `three_year_course` WHERE `courseName` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC);
+        $results = $conn->query("SELECT * FROM `three_year_course` ORDER BY `courseName` ASC")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
     if ($action == "docs"){

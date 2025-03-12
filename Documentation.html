@@ -13,31 +13,31 @@
       <div class="sidebtns">
         <a href="#greet" id="activebtn"
           ><img src="assets/images/Icons/house-chimney.svg" alt=""
-        /></a>
+        /> <p>Home</p></a>
         <a href="#offeredProgram" id="activebtn"
           ><img src="assets/images/Icons/heart-partner-handshake.svg" alt=""
-        /></a>
+        /><p>Programs</p></a>
         <a href="#enrollmentforms" id="activebtn"
           ><img src="assets/images/Icons/comment-question.svg" alt=""
-        /></a>
+        /><p>Guides</p></a>
         <a href="#forms" id="activebtn"
           ><img src="assets/images/Icons/file-signature.svg" alt=""
-        /></a>
+        /><p>Enrollment</p></a>
         <a href="#diploma" id="activebtn"
           ><img src="assets/images/Icons/diploma.svg" alt=""
-        /></a>
+        /><p>Diploma</p></a>
         <a href="#shortTerm" id="activebtn"
           ><img src="assets/images/Icons/user-skill-gear.svg" alt=""
-        /></a>
+        /><p>Short-Term</p></a>
         <a href="#communityBased" id="activebtn"
           ><img src="assets/images/Icons/skill-alt.svg" alt=""
-        /></a>
+        /><p>Community Based</p></a>
         <a href="#contact" id="activebtn"
           ><img src="assets/images/Icons/customer-service.svg" alt=""
-        /></a>
+        /><p>Contact</p></a>
         <a href="#feedBack" id="activebtn"
           ><img src="assets/images/Icons/feedback-review.svg" alt=""
-        /></a>
+        /><p>Feedback</p></a>
       </div>
     </div>
     <main>
@@ -617,7 +617,7 @@
           DiplomaContainer.innerHTML += `
           <div class="courseCard" onclick="courseDescription(${CourseList.id})">
               <img
-                src="https://img.freepik.com/premium-photo/businessman-hand-using-laptop-computer-office_31965-2881.jpg"
+                src="${CourseList.imgUrl}"
                 alt=""
               />
               <h3>${CourseList.abv}</h3>
@@ -635,12 +635,14 @@
         shortermTbl.innerHTML = `<tr>
             <th>Program</th>
             <th>Certification</th>
+            <th>Status</th>
           </tr>`;
           for (const shorTerm of shortTerms) {
             shortermTbl.innerHTML += `
             <tr   onclick="shortTermDesc(${shorTerm.id})">
             <td>${shorTerm.courseName}</td>
             <td>${shorTerm.certification}</td>
+            <td>${shorTerm.status}</td>
           </tr>
             `;
           }
@@ -659,6 +661,7 @@
             <th>Program</th>
             <th>Certification</th>
             <th>Under Program</th>
+            <th>Status</th>
           </tr>`;
           for (const MTPProgram of MTPPrograms) {
             cbtTbl.innerHTML += `
@@ -666,6 +669,7 @@
             <td>${MTPProgram.courseName}</td>
             <td>${MTPProgram.certification}</td>
             <td>${MTPProgram.program}</td>
+            <td>${MTPProgram.status}</td>
           </tr>
             `;
           }
