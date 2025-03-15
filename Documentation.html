@@ -38,7 +38,10 @@
         <a href="#feedBack" id="activebtn"
           ><img src="assets/images/Icons/feedback-review.svg" alt=""
         /><p>Feedback</p></a>
+        
       </div>
+
+      <div id="googleTranslate"></div>
     </div>
     <main>
       <section class="greet" id="greet">
@@ -574,8 +577,29 @@
             </dialog>
         
       </section>
+    
     </main>
 
+    
+
+    <script type="text/javascript">
+
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            // pageLanguage: "en",
+            includedLanguages: "en,fil,ceb",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          },
+          "googleTranslate"
+        );
+      }
+    </script>
+  
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
     <script>
       let mediafiles = [];
       let documents = [];

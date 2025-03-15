@@ -76,6 +76,14 @@ body {
         border-bottom: 2px solid navy;
       }
     }
+    .translator{
+      outline: 1px solid black;
+      width: 200px;
+      #googleTranslate{
+        background-color: blue;
+        height: 10px;
+      }
+    }
   }
 }
 
@@ -281,6 +289,7 @@ main {
             margin: 10px 0px;
           }
           .visayan {
+            display: none;
             font-style: italic;
           }
         }
@@ -314,6 +323,7 @@ main {
             margin: 10px 0px;
           }
           .visayan {
+            display: none;
             font-style: italic;
           }
         }
@@ -456,6 +466,7 @@ main {
             margin-bottom: 20px;
           }
           .cebuano{
+            display: none;
             font-size: 18px;
 
             margin: 10px;

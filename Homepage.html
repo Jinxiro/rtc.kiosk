@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="./assets/home.css">
-  </head> 
+    <link rel="stylesheet" href="./assets/home.css" />
+  </head>
   <body>
     <nav>
       <div class="logo">
@@ -19,6 +19,7 @@
       </div>
       <!-- <h1>WELCOME</h1> -->
       <div class="navBtn">
+    
         <button>Contact Us</button>
         <button>About Us</button>
       </div>
@@ -160,17 +161,41 @@
 
         <div class="btn" onclick="pdfViewer.showModal()">
           <img src="assets/images/Icons/feedback-alt.svg" alt="" />
-          <p>Feed back</p>
-          
+          <p>Feedback</p>
         </div>
-        
       </div>
       <dialog id="pdfViewer">
-        <embed src="assets/Feedback Form (Fillable).pdf" type="">
-          <div class="closebtn">
-            <button  onclick="pdfViewer.close()" >close</button>
-          </div>
-        </dialog>
+        <embed src="assets/Feedback Form (Fillable).pdf" type="" />
+        <div class="closebtn">
+          <button onclick="pdfViewer.close()">close</button>
+        </div>
+      </dialog>
     </main>
+
+    <div class="translator">
+
+      <div id="googleTranslate"></div>
+    </div>
   </body>
+  <script type="text/javascript">
+  
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          // pageLanguage: "en",
+          includedLanguages: "en,fil,ceb",
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false, 
+        },
+        "googleTranslate"
+      );
+    }
+  </script>
+
+  <script
+    type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
+
 </html>
