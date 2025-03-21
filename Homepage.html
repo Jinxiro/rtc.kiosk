@@ -24,6 +24,76 @@
         <button>About Us</button>
       </div>
     </nav>
+
+    <dialog id="diploma">
+      <div class="tblheader">
+        <h1>3 year Diploma</h1>
+        <button onclick="diploma.close()">Close</button>
+      </div>
+      <table id="diplomaTbl">
+      </table>
+    </dialog>
+
+    <dialog id="shorterModal">
+      <div class="tblheader">
+        <h1> <span id="stCert"></span> Programs</h1>
+        <button onclick="shorterModal.close()">Close</button>
+      </div>
+      <table id="shortermTbl">
+      </table>
+    </dialog>
+
+    <dialog id="shortCate">
+      <div class="tblheader">
+
+        <h1>Short-Term / Skills Upgrading Programs</h1>
+        <button onclick="shortCate.close()">Close</button>
+      </div>
+      <div class="stcards">
+        <h2 onclick="renderShorterm('NC I')">NC I</h2>
+        <h2 onclick="renderShorterm('NC II')">NC II</h2>
+        <h2 onclick="renderShorterm('NC III')">NC III</h2>
+        <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
+        <h2 onclick="renderShorterm('LV I')">Level I</h2>
+        <h2 onclick="renderShorterm('LV II')">Level II</h2>
+        <h2 onclick="renderShorterm('ELearning')">Others</h2>
+      </div>
+    </dialog>
+
+    <dialog id="cbtprogramModal">
+      <div class="tblheader">
+        <h1> <span id="cbtCert"></span> Programs</h1>
+        <button onclick="cbtprogramModal.close()">Close</button>
+      </div>
+      <table id="cbtTbl">
+      </table>
+    </dialog>
+
+    <dialog id="cbtModal">
+      <div class="tblheader">
+
+        <h1>Community-Based Skills Training</h1>
+        <button onclick="cbtModal.close()">Close</button>
+      </div>
+      <div class="courseCard">
+        <div class="left">
+          <h1>Mobile Training Program (MTP)</h1>
+          <div class="btns">
+            <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
+            <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
+            <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
+            <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
+          </div>
+        </div>
+        <div class="right">
+          <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
+          <div class="btns">
+            <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
+            <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+          </div>
+        </div>
+    </dialog>
+
     <dialog id="registerModal">
       <div class="headmodal">
         <h1>Courses Offered</h1>
@@ -39,8 +109,8 @@
             8-Level Descriptors) considering RTC-KorPhil Davao as the Center of
             Excellence for TVET in Mindanao.
           </p>
-          <button>
-            <a href="https://enroll.korphildavao.site/register">Continue</a>
+          <button onclick="diploma.showModal()">
+           Continue
           </button>
         </div>
         <div class="contentCard">
@@ -52,8 +122,8 @@
             diploma programs are also offered individually in separate
             schedules.
           </p>
-          <button>
-            <a href="https://enroll.korphildavao.site/register">Continue</a>
+          <button onclick="shortCate.showModal()">
+            Continue
           </button>
         </div>
         <div class="contentCard">
@@ -65,64 +135,14 @@
             the stipulations in the Memorandum of Agreement (MOA) between the
             Center & the sponsoring partner.
           </p>
-          <button>
-            <a href="https://enroll.korphildavao.site/register">Continue</a>
+          <button  onclick="cbtModal.showModal()">
+            Continue
           </button>
         </div>
       </div>
     </dialog>
 
-    <dialog id="feedBackForm">
-      <form action="" method="dialog">
-        <h2>We Value your Feedback</h2>
-        <div class="closeBtn">
-          <button onclick="feedBackForm.showModal()">Cancel</button>
-        </div>
-        <div>
-          <p>Name</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Middle Name</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Last Name</p>
-          <input type="text" />
-        </div>
-        <div class="satisfaction">
-          <p>How satisfied you are?</p>
-          <select name="satisfied" id="satisfaction">
-            <option value="Very Satisfied">Very Satisfied</option>
-            <option value="Satisfied">Satisfied</option>
-            <option value="Natural">Natural</option>
-            <option value="Unsatisfied">Unsatisfied</option>
-            <option value="Very Unsatisfied">Very Unsatisfied</option>
-          </select>
-        </div>
-        <div class="feedBackbox">
-          <p>Feedback</p>
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Your feedback or Recommendations"
-          ></textarea>
-        </div>
-        <div class="agreePolicy">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quasi
-            veniam harum! Similique voluptas consequuntur porro quos nam dolor
-            iure aperiam possimus alias inventore repellat officia, at
-            architecto modi autasdasd.
-          </p>
-        </div>
-        <div class="submitBtn">
-          <button>Submit Feedback</button>
-        </div>
-      </form>
-    </dialog>
+  
     <main>
       <div class="leftContainer">
         <div class="roteteShape">
@@ -148,16 +168,16 @@
             <p>Get Started</p>
           </div>
         </a>
+        <div class="btn" onclick="registerModal.showModal()">
+          <img src="assets/images/Icons/clipboard-list.svg" alt="" />
+          <p>Course List</p>
+        </div>
         <a href="InquiryPage.html   ">
           <div class="btn">
             <img src="assets/images/Icons/student-alt.svg" alt="" />
             <p>Inquiries</p>
           </div>
         </a>
-        <div class="btn" onclick="registerModal.showModal()">
-          <img src="assets/images/Icons/clipboard-list.svg" alt="" />
-          <p>Register</p>
-        </div>
 
         <div class="btn" onclick="pdfViewer.showModal()">
           <img src="assets/images/Icons/feedback-alt.svg" alt="" />
@@ -177,6 +197,122 @@
       <div id="googleTranslate"></div>
     </div>
   </body>
+
+  <script>
+     let CourseLists = [];
+     let shortTerms = [];
+     let currentShortTerm;
+     let MTPPrograms = [];
+    let MNTRPrograms = [];
+
+     async function getCourse() {
+      // let searchstr = searchInput.value;
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
+      );
+
+      CourseLists = await response.json();
+      console.log(CourseLists);
+
+      diplomaTbl.innerHTML = `<tr>
+          <th>Program</th>
+          <th>Duration</th>
+          <th>Status</th>
+        </tr>`;
+      for (const CourseList of CourseLists) {
+        diplomaTbl.innerHTML += `
+    
+        <tr>
+          <td>${CourseList.courseName}</td>
+          <td>3 Years</td>
+          <td>${CourseList.status}</td>
+        </tr>`;
+      }
+    }
+
+    async function renderShorterm(stprogram) {
+      console.log(stprogram);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=shortterm&search=${stprogram}`
+      );
+      shortTerms = await response.json();
+      console.log(shortTerms);
+
+      shortermTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Status</th>
+          </tr>`;
+      for (const shorTerm of shortTerms) {
+        shortermTbl.innerHTML += `
+            <tr   onclick="shortTermDesc(${shorTerm.id})">
+            <td>${shorTerm.courseName}</td>
+            <td>${shorTerm.certification}</td>
+            <td>${shorTerm.status}</td>
+          </tr>
+            `;
+      }
+      stCert.innerHTML = stprogram;
+      shorterModal.showModal();
+    }
+
+    async function renderCbtMtp(cbtprogram) {
+      console.log(cbtprogram);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MTP&search=${cbtprogram}`
+      );
+      MTPPrograms = await response.json();
+      console.log(MTPPrograms);
+
+      cbtTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Under Program</th>
+            <th>Status</th>
+          </tr>`;
+      for (const MTPProgram of MTPPrograms) {
+        cbtTbl.innerHTML += `
+            <tr onclick="shortTermDesc(${MTPProgram.id})">
+            <td>${MTPProgram.courseName}</td>
+            <td>${MTPProgram.certification}</td>
+            <td>${MTPProgram.program}</td>
+            <td>${MTPProgram.status}</td>
+          </tr>
+            `;
+      }
+      cbtCert.innerHTML = cbtprogram;
+      cbtprogramModal.showModal();
+    }
+
+
+    async function renderCbtMNTR(MNTR) {
+      console.log(MNTR);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
+      );
+      MNTRPrograms = await response.json();
+      console.log(MNTRPrograms);
+
+      cbtTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Under Program</th>
+            <th>Status</th>
+          </tr>`;
+      for (const MNTRProgram of MNTRPrograms) {
+        cbtTbl.innerHTML += `
+            <tr onclick="shortTermDesc(${MNTRProgram.id})">
+            <td>${MNTRProgram.courseName}</td>
+            <td>${MNTRProgram.program}</td>
+            <td>${MNTRProgram.status}</td>
+          </tr>
+            `;
+      }
+      cbtCert.innerHTML = MNTR;
+      cbtprogramModal.showModal();
+    }
+
+    getCourse();
+  </script>
   <script type="text/javascript">
   
 
