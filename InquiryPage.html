@@ -494,7 +494,7 @@
 
     function rendermedia() {
       displayVideo.innerHTML = ``;
-      for (const mediafile of mediafiles) {
+      for (const mediafile of mediafiles.slice(0, 3)) {
 
         displayVideo.innerHTML += `
                   <div class="thumbnail" onclick="mediaPlayer(${mediafile.id})">

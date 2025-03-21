@@ -10,6 +10,9 @@
 dialog {
   padding: 20px;
   margin: auto;
+  &::backdrop {
+    backdrop-filter: blur(5px);
+  }
 }
 html {
   scroll-behavior: smooth;
@@ -483,9 +486,33 @@ main {
           }
         }
       }
+
+      #cebVideoplayer{
+        
+        .cebHeader{
+          margin: 10px 0px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          button{
+            padding: 5px;
+          }
+        }
+        iframe{
+          border: none;
+          border-radius: 10px;
+          height: 700px;
+          width: 1200px;
+        }
+      }
       .videoTutorial {
         margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         h1 {
+          width: 95%;
           font-size: 80px;
         }
         iframe {
@@ -495,7 +522,72 @@ main {
           border: none;
           border-radius: 20px;
         }
+        button{
+          border: none;
+          border-radius: 10px;
+          background-color: navy;
+          color: white;
+          font-size: 20px;
+          padding: 15px;
+          width: 300px;
+        &:hover{
+          cursor: pointer;
+          background-color: rgb(3, 3, 169);
+        }
+        }
       }
+    }
+  }
+  #courseDes{
+    border: none;
+    border-radius: 10px;
+    width: 800px;
+    button{
+      border: none;
+     border-radius: 10px;
+     color: navy;
+      padding: 6px;
+      width: 100px;
+    }
+    .diplomacontnt{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      span{
+        font-size: 20px;
+        font-weight: 700;
+      }
+      img{
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px solid rgba(0, 0, 0, 0.183);
+        margin: 10px 0px ;
+        height: 300px;
+        width: 700px;
+        object-fit: cover;
+      }
+      #infoTxt{
+        width: 700px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  #cebVideoDiploma{
+        
+    .cebHeader{
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        padding: 5px;
+      }
+    }
+    iframe{
+      border: none;
+      border-radius: 10px;
+      height: 700px;
+      width: 1200px;
     }
   }
   .diploma {
@@ -517,7 +609,15 @@ main {
     .bodyCourse {
       padding: 40px;
       border-radius: 20px;
-
+      .upcontnt{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        button{
+          margin: 10px 0px;
+        }
+      }
       iframe {
         height: 600px;
         width: 1200px;
@@ -650,6 +750,21 @@ main {
   #shorterModal {
     width: 800px;
     height: 1000px;
+    .tblheader{
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        font-size: 20px;
+        padding: 10px;
+        width: 100px;
+        
+      }
+      h3{
+        font-size: 35px;
+      }
+    }
     #shortermTbl {
       background-color: whitesmoke;
       tr {
@@ -778,6 +893,21 @@ main {
   #cbtModal {
     width: 1000px;
     height: 1000px;
+    .tblheader{
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        font-size: 20px;
+        padding: 10px;
+        width: 100px;
+        
+      }
+      h3{
+        font-size: 35px;
+      }
+    }
     #cbtTbl {
       background-color: whitesmoke;
       tr {

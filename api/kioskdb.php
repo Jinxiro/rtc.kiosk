@@ -33,6 +33,6 @@ $dsn = "mysql:
         echo json_encode($results);
     }
     if ($action == "CBT_MNTR"){
-        $results = $conn->query("SELECT * FROM `community_based` WHERE `certification` LIKE '$search'")->fetchAll(PDO::FETCH_ASSOC);
+        $results = $conn->query("SELECT * FROM `community_based` WHERE `program` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
