@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="./assets/home.css" />
   </head>
   <body>
+    <dialog id="adminModal">
+      <h1>WELCOME ADMINS</h1>
+      <form action="" method="dialog" onsubmit="adminAccess()">
+        <input id="AdminPass" type="password" required />
+        <input type="submit" />
+      </form>
+    </dialog>
     <nav>
       <div class="logo">
         <img src="assets/images/Korphil logo (icon).png" alt="" />
@@ -20,9 +27,16 @@
       <!-- <h1>WELCOME</h1> -->
       <div class="navBtn">
     
-        <button>Contact Us</button>
-        <button>About Us</button>
-      </div>
+        <a href="Contact.html"><button>Contact Us</button></a>
+        <a href="Contact.html"><button>About Us</button></a>
+        <button
+        onclick="adminModal.showModal()"
+        class="adminbtn"
+        style="background-color: none"
+      >
+        <img src="assets/images/Icons/admin-alt.svg" alt="" /> Admin
+      </button>
+      </div>  
     </nav>
 
     <dialog id="diploma">
@@ -204,6 +218,14 @@
      let currentShortTerm;
      let MTPPrograms = [];
     let MNTRPrograms = [];
+
+    function adminAccess() {
+        if (AdminPass = "admins") {
+          window.location.href = "TDadmins.html"; // Replace with your target URL
+        } else {
+          alert("Wrong Pass");
+        }
+      }
 
      async function getCourse() {
       // let searchstr = searchInput.value;

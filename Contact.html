@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: "Poppins", "San Serif";
+      /* outline: 1px solid black; */
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.381);
+      backdrop-filter: blur(10px);
+      .adminbtn {
+        img {
+          height: 10px;
+        }
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          height: 80px;
+        }
+        h1 {
+          line-height: 25px;
+          color: navy;
+          margin: 0px 10px;
+        }
+      }
+
+      button {
+        background-color: navy;
+        padding: 20px;
+        color: white;
+        margin: 0px 10px;
+        width: 120px;
+        border: none;
+        border-radius: 15px;
+      }
+    }
+
+    .aboutUs {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        width: 550px;
+      }
+    }
+    .contact {
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(79, 79, 255) 70%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      .head {
+        text-align: center;
+      }
+      .contentCards {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto;
+        .maps {
+          height: 280px;
+          width: auto;
+          grid-column: 1 / span 2;
+          display: flex;
+          justify-content: center;
+          iframe {
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+          }
+        }
+
+        .callUs,
+        .emailUS {
+          height: 500px;
+          width: 700px;
+          background-color: whitesmoke;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.165);
+
+          .cardHeader {
+            font-size: 50px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            img {
+              margin: 5px;
+              height: 50px;
+            }
+          }
+          .details {
+            display: grid;
+            grid-template-columns: auto auto;
+            .contactCard,
+            .EmailCard {
+              width: 320px;
+              padding: 10px;
+              background-color: white;
+              margin: 5px;
+              h1 {
+                font-size: 20px;
+              }
+              p {
+                font-size: 14px;
+              }
+            }
+            .EmailCard {
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+    }
+  </style>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="assets/images/Korphil logo (icon).png" alt="" />
+        <h1>
+          Regional Training Center
+          <br />
+          KorPhil Davao
+        </h1>
+      </div>
+      <!-- <h1>WELCOME</h1> -->
+      <div class="navBtn">
+        <a href="Homepage.html"><button>Home</button></a>
+        <button
+          onclick="adminModal.showModal()"
+          class="adminbtn"
+          style="background-color: none"
+        >
+          <img src="assets/images/Icons/admin-alt.svg" alt="" /> Admin
+        </button>
+      </div>
+    </nav>
+    <dialog id="adminModal">
+      <h1>WELCOME ADMINS</h1>
+      <form method="dialog" onsubmit="adminAccess()">
+        <input id="AdminPass" type="password" required/>
+        <input type="submit" />
+      </form>
+    </dialog>
+    <div class="aboutUs">
+      <div class="left">
+        <h1>Our Brief History</h1>
+        <p>
+          By virtue of R.A 5462, and later repealed by the Labor Code of the
+          Philippines Book II (NATIONAL MANPOWER and YOUTH COUNCIL), the
+          Regional Manpower Training Center was established in 1975.
+          <br />
+          <br />
+          By virtue of R.A 7796 , known as the “Technical Educational and Skills
+          Development Act of 1994” or the “TESDA Act of 1994, the Center evolved
+          to TESDA Regional Training Center, Davao.
+          <br />
+          <br />
+          When the Republic of Korea and the Republic of the Philippines agreed
+          to establish a Tech-Voc Center in Davao to be funded by the Korean
+          government, on June 3, 2003 it paved the way to establish the Regional
+          Training Center – Korea Philippines Vocational Training Center, Davao
+          also known as RTC-KPVTC or KorPhil Davao through KOICA. RTC-KorPhil
+          Davao was inaugurated by former President Gloria M. Arroyo on March 8,
+          2005 together with the Korean Ambassador to the Philippines, H.E. Yu,
+          Myung Hwan and Mr. Lee, Hyun Ju, Executive Director, KOICA General
+          Affairs.
+        </p>
+      </div>
+      <div class="right">
+        <img
+          src="https://www.korphildavao.site/wp-content/uploads/2022/03/inauguration.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <section class="contact" id="contact">
+      <!-- <div class="head">
+            <h1>Contact and Support</h1>
+          </div> -->
+      <div class="contentCards">
+        <div class="callUs">
+          <h1 class="cardHeader">
+            <img src="assets/images/Icons/circle-phone.svg" alt="" />Call us On
+          </h1>
+          <div class="details">
+            <div class="contactCard">
+              <h1>Admin / HR</h1>
+              <p>0968 875 2266</p>
+              <p>(082) 287 3691</p>
+              <p>Administrative Concerns</p>
+            </div>
+            <div class="contactCard">
+              <h1>Training Department</h1>
+              <p>0939 924 2092</p>
+              <p>Training Concerns</p>
+              <p>Scholarships</p>
+            </div>
+            <div class="contactCard">
+              <h1>Assessment Office</h1>
+              <p>0968 858 3041</p>
+              <p>Assessment Concerns</p>
+              <p>National Certificate Exams</p>
+            </div>
+            <div class="contactCard">
+              <h1>Registrar's Office</h1>
+              <p>0968 899 3626</p>
+              <p>Records Concerns</p>
+              <p>Entrance Examination</p>
+            </div>
+            <div class="contactCard">
+              <h1>Procurement Office</h1>
+              <p>0968 870 0829</p>
+              <p>(082) 287 3691</p>
+              <p>Procurement Concerns</p>
+            </div>
+          </div>
+        </div>
+        <div class="emailUS">
+          <h1 class="cardHeader">
+            <img src="assets/images/Icons/circle-envelope.svg" alt="" />Email us
+            On
+          </h1>
+          <div class="details">
+            <div class="EmailCard">
+              <h1>RTC-KorPhil Davao</h1>
+              <p>rtcdavaocity@tesda.gov.ph</p>
+            </div>
+            <div class="EmailCard">
+              <h1>Training Department</h1>
+              <p>rtckpvtctrainingdepartment@gmail.com</p>
+            </div>
+            <div class="EmailCard">
+              <h1>Assessment Office</h1>
+              <p>korphilcacs@gmail.com</p>
+            </div>
+            <div class="EmailCard">
+              <h1>Registrar's Office</h1>
+              <p>korphilregistrar@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="maps">
+          <iframe
+            class="frameMaps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.24940338278!2d125.64079731103793!3d7.212364814744095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f941f10cd7900b%3A0xda86f8f574e83300!2sTESDA%20XI%20Regional%20Training%20Center%20-%20Korea%20Philippines%20Vocational%20Training%20Center%2C%20Davao!5e0!3m2!1sen!2sph!4v1726746283739!5m2!1sen!2sph"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <script>
+      function adminAccess() {
+        if (AdminPass = "admins") {
+          window.location.href = "TDadmins.html"; // Replace with your target URL
+        } else {
+          alert("Wrong Pass");
+        }
+      }
+    </script>
+  </body>
+</html>

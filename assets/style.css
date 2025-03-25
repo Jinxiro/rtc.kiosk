@@ -20,6 +20,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .adminbtn {
+    img {
+      height: 10px;
+    }
+  }
   .logo {
     display: flex;
     justify-content: center;
@@ -42,6 +47,10 @@ nav {
     width: 120px;
     border: none;
     border-radius: 15px;
+    &:hover{
+      cursor: pointer;
+      background-color: rgb(36, 36, 198);
+    }
   }
 }
 .LightNav {
@@ -73,6 +82,10 @@ nav {
     width: 120px;
     border: none;
     border-radius: 15px;
+    &:hover{
+      cursor: pointer;
+      background-color: rgb(219, 219, 255);
+    }
   }
 }
 

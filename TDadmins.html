@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Document</title>
+</head>
+<style>
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+   #diploma,
+#shortCate,
+#cbtModal,
+#shorterModal,
+#cbtprogramModal {
+  border: none;
+  border-radius: 10px;
+  width: 900px;
+  padding: 20px;
+  .tblheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      padding: 5px;
+      width: 100px;
+    }
+  }
+
+  .stcards {
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 400px 400px;
+    h2 {
+      color: white;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.111);
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgb(32, 0, 51);
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(63, 1, 99);
+      }
+    }
+  }
+  .courseCard {
+    margin: 20px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 600px;
+    gap: 20px;
+
+    .left {
+      width: 600px;
+      h1 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .btns {
+        align-items: left;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 280px 280px;
+        gap: 10px;
+        h3 {
+          border-radius: 10px;
+          color: white;
+          background-color: navy;
+          padding: 15px;
+          text-align: center;
+          background-color: rgb(32, 0, 51);
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(63, 1, 99);
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 600px;
+      h1 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .btns {
+        align-items: center;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 280px 280px;
+        gap: 10px;
+        h3 {
+          border-radius: 10px;
+          font-size: 15px;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          background-color: rgb(32, 0, 51);
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(63, 1, 99);
+          }
+        }
+      }
+    }
+  }
+}
+    #shortermTbl,
+#diplomaTbl {
+  background-color: whitesmoke;
+  tr,
+  td {
+    &:hover {
+      background-color: rgb(207, 207, 207);
+    }
+  }
+  th {
+    text-align: center;
+    padding: 15px;
+  }
+  td {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+    table {
+  background-color: whitesmoke;
+  tr,
+  td {
+    &:hover {
+      background-color: rgb(207, 207, 207);
+    }
+  }
+  th {
+    text-align: center;
+    padding: 15px;
+  }
+  td {
+    padding: 20px;
+  }
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">
+          <img src="assets/images/Korphil logo (icon).png" alt="" />
+          <h1>
+            Regional Training Center
+            <br />
+            KorPhil Davao
+          </h1>
+        </div>
+        <!-- <h1>WELCOME</h1> -->
+        <div class="navBtn">
+          <a href="Homepage.html"><button>Home</button></a>
+          <button>Contact Us</button>
+          <button>About Us</button>
+          
+        </div>
+      </nav>
+      <dialog id="diploma">
+        <div class="tblheader">
+          <h1>3 year Diploma</h1>
+          <button onclick="diploma.close()">Close</button>
+        </div>
+        <table id="diplomaTbl">
+        </table>
+      </dialog>
+
+      <dialog id="shorterModal">
+        <div class="tblheader">
+          <h1> <span id="stCert"></span> Programs</h1>
+          <button onclick="shorterModal.close()">Close</button>
+        </div>
+        <table id="shortermTbl">
+        </table>
+      </dialog>
+
+      <dialog id="cbtprogramModal">
+        <div class="tblheader">
+          <h1> <span id="cbtCert"></span> Programs</h1>
+          <button onclick="cbtprogramModal.close()">Close</button>
+        </div>
+        <table id="cbtTbl">
+        </table>
+      </dialog>
+
+      <dialog id="shortCate">
+        <div class="tblheader">
+  
+          <h1>Short-Term / Skills Upgrading Programs</h1>
+          <button onclick="shortCate.close()">Close</button>
+        </div>
+        <div class="stcards">
+          <h2 onclick="renderShorterm('NC I')">NC I</h2>
+          <h2 onclick="renderShorterm('NC II')">NC II</h2>
+          <h2 onclick="renderShorterm('NC III')">NC III</h2>
+          <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
+          <h2 onclick="renderShorterm('LV I')">Level I</h2>
+          <h2 onclick="renderShorterm('LV II')">Level II</h2>
+          <h2 onclick="renderShorterm('ELearning')">Others</h2>
+        </div>
+      </dialog>
+
+      <dialog id="cbtModal">
+        <div class="tblheader">
+  
+          <h1>Community-Based Skills Training</h1>
+          <button onclick="cbtModal.close()">Close</button>
+        </div>
+        <div class="courseCard">
+          <div class="left">
+            <h1>Mobile Training Program (MTP)</h1>
+            <div class="btns">
+              <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
+              <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
+              <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
+              <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
+            </div>
+          </div>
+          <div class="right">
+            <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
+            <div class="btns">
+              <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
+              <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+            </div>
+          </div>
+      </dialog>
+
+      <dialog id="EditDiplomaStatus">
+        <h1 id="diplomaName"></h1>
+        <button onclick="DiplomaStatus('Available')">Available</button>
+        <button onclick="DiplomaStatus('Not Available')">Not Available</button>
+      </dialog>
+      <dialog id="EditShortTermStatus">
+        <h1 id="StName"></h1>
+        <button onclick="ShortTermStatus('Available')">Available</button>
+        <button onclick="ShortTermStatus('Not Available')">Not Available</button>
+      </dialog>
+      <dialog id="EditMTPStatus">
+        <h1 id="MTPName"></h1>
+        <button onclick="MTPStatus('Available')">Available</button>
+        <button onclick="MTPStatus('Not Available')">Not Available</button>
+      </dialog>
+      <dialog id="EditMNTRStatus">
+        <h1 id="MNTRName"></h1>
+        <button onclick="MNTRStatus('Available')">Available</button>
+        <button onclick="MNTRStatus('Not Available')">Not Available</button>
+      </dialog>
+<main>
+    <button onclick="diploma.showModal()">3 Year Diploma</button>
+    <button onclick="shortCate.showModal()">Short Term</button>
+    <button onclick="cbtModal.showModal()">Community-Based</button>
+</main>
+<script>
+    let currentCourselist;
+     let CourseLists = [];
+     let shortTerms = [];
+     let currentShortTerm;
+     let currentMTP;
+     let currentMNTR;
+     let MTPPrograms = [];
+    let MNTRPrograms = [];
+
+    function adminAccess() {
+        if (AdminPass = "admins") {
+          window.location.href = "TDadmins.html"; // Replace with your target URL
+        } else {
+          alert("Wrong Pass");
+        }
+      }
+
+     async function getCourse() {
+      // let searchstr = searchInput.value;
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
+      );
+
+      CourseLists = await response.json();
+      console.log(CourseLists);
+
+      diplomaTbl.innerHTML = `<tr>
+          <th>Program</th>
+          <th>Duration</th>
+          <th>Status</th>
+        </tr>`;
+      for (const CourseList of CourseLists) {
+        diplomaTbl.innerHTML += `
+    
+        <tr>
+          <td>${CourseList.courseName}</td>
+          <td>3 Years</td>
+          <td>${CourseList.status}</td>
+          <td><button onclick="EditDiploma(${CourseList.id})">Edit</button></td>
+        </tr>`;
+      }
+    }
+
+    function EditDiploma(id) {
+      currentCourselist = CourseLists.find(
+        (CourseList) => CourseList.id == id
+      );
+      diplomaName.innerHTML = currentCourselist.courseName;
+      EditDiplomaStatus.showModal();
+    }
+
+    async function DiplomaStatus(status){
+        await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditDiploma&status=${status}&id=${currentCourselist.id}`
+      );
+      EditDiplomaStatus.close();
+      getCourse();
+    }
+
+    async function renderShorterm(stprogram) {
+      console.log(stprogram);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=shortterm&search=${stprogram}`
+      );
+      shortTerms = await response.json();
+      console.log(shortTerms);
+
+      shortermTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Status</th>
+          </tr>`;
+      for (const shorTerm of shortTerms) {
+        shortermTbl.innerHTML += `
+            <tr">
+            <td>${shorTerm.courseName}</td>
+            <td>${shorTerm.certification}</td>
+            <td>${shorTerm.status}</td>
+            <td><button onclick="EditShortTerm(${shorTerm.id})">Edit</button></td>
+          </tr>
+            `;
+      }
+      stCert.innerHTML = stprogram;
+      shorterModal.showModal();
+    }
+
+    function EditShortTerm(id) {
+      currentShortTerm = shortTerms.find(
+        (shortTerm) => shortTerm.id == id
+      );
+      StName.innerHTML = currentShortTerm.courseName;
+      EditShortTermStatus.showModal();
+    }
+
+    async function ShortTermStatus(status){
+        await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditST&status=${status}&id=${currentShortTerm.id}`
+      );
+      EditShortTermStatus.close();
+      renderShorterm(currentShortTerm.certification);
+    }
+
+    async function renderCbtMtp(cbtprogram) {
+      console.log(cbtprogram);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MTP&search=${cbtprogram}`
+      );
+      MTPPrograms = await response.json();
+      console.log(MTPPrograms);
+
+      cbtTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Under Program</th>
+            <th>Status</th>
+          </tr>`;
+      for (const MTPProgram of MTPPrograms) {
+        cbtTbl.innerHTML += `
+            <tr>
+            <td>${MTPProgram.courseName}</td>
+            <td>${MTPProgram.certification}</td>
+            <td>${MTPProgram.program}</td>
+            <td>${MTPProgram.status}</td>
+            <td><button onclick="EditMTP(${MTPProgram.id})">Edit</button></td>
+          </tr>
+            `;
+      }
+      cbtCert.innerHTML = cbtprogram;
+      cbtprogramModal.showModal();
+    }
+
+    function EditMTP(id) {
+      currentMTP = MTPPrograms.find(
+        (MTPProgram) => MTPProgram.id == id
+      );
+      MTPName.innerHTML = currentMTP.courseName;
+      EditMTPStatus.showModal();
+    }
+
+    async function MTPStatus(status){
+        await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditMTP&status=${status}&id=${currentMTP.id}`
+      );
+      EditMTPStatus.close();
+      renderCbtMtp(currentMTP.certification);
+    }
+
+
+
+    async function renderCbtMNTR(MNTR) {
+      console.log(MNTR);
+      let response = await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
+      );
+      MNTRPrograms = await response.json();
+      console.log(MNTRPrograms);
+
+      cbtTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Under Program</th>
+            <th>Status</th>
+          </tr>`;
+      for (const MNTRProgram of MNTRPrograms) {
+        cbtTbl.innerHTML += `
+            <tr>
+            <td>${MNTRProgram.courseName}</td>
+            <td>${MNTRProgram.program}</td>
+            <td>${MNTRProgram.status}</td>
+            <td><button onclick="EditMNTR(${MNTRProgram.id})">Edit</button></td>
+          </tr>
+            `;
+      }
+      cbtCert.innerHTML = MNTR;
+      cbtprogramModal.showModal();
+    }
+
+    function EditMNTR(id) {
+      currentMNTR = MNTRPrograms.find(
+        (MNTRProgram) => MNTRProgram.id == id
+      );
+      MNTRName.innerHTML = currentMNTR.courseName;
+      EditMNTRStatus.showModal();
+    }
+
+    async function MNTRStatus(status){
+        await fetch(
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditMNTR&status=${status}&id=${currentMNTR.id}`
+      );
+      EditMNTRStatus.close();
+      renderCbtMNTR(currentMNTR.certification);
+    }
+
+    getCourse();
+</script>
+</body>
+
+</html>

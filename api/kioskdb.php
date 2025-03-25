@@ -10,6 +10,8 @@ $dsn = "mysql:
 
     $action = $_GET["action"] ?? null;
     $search = $_GET["search"] ?? null;
+    $status = $_GET["status"] ?? null;
+    $id = $_GET["id"] ?? null;
 
     if ($action == "media"){
         $results= $conn->query("SELECT * FROM `media_file` WHERE `title` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC); 
@@ -34,5 +36,25 @@ $dsn = "mysql:
     }
     if ($action == "CBT_MNTR"){
         $results = $conn->query("SELECT * FROM `community_based` WHERE `program` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "EditDiploma"){
+        $results = $conn->query("UPDATE `three_year_course` SET `status` = '$status' WHERE `three_year_course`.`id` =  $id;
+")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "EditST"){
+        $results = $conn->query("UPDATE `short_term_course` SET `status` = '$status' WHERE `short_term_course`.`id` = $id;
+")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "EditMTP"){
+        $results = $conn->query("UPDATE `community_based` SET `status` = '$status' WHERE `community_based`.`id` = $id;
+")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
+    if ($action == "EditMNTR"){
+        $results = $conn->query("UPDATE `community_based` SET `status` = '$status' WHERE `community_based`.`id` = $id;
+")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
