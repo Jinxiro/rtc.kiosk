@@ -21,9 +21,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   .adminbtn {
-    img {
-      height: 10px;
-    }
+font-weight: bold;
+    
+img {
+  height: 12px;
+  
+}
   }
   .logo {
     display: flex;
@@ -47,6 +50,7 @@ nav {
     width: 120px;
     border: none;
     border-radius: 15px;
+    transition: 0.5s ease;
     &:hover{
       cursor: pointer;
       background-color: rgb(36, 36, 198);
@@ -82,6 +86,7 @@ nav {
     width: 120px;
     border: none;
     border-radius: 15px;
+    transition: 0.5s ease;
     &:hover{
       cursor: pointer;
       background-color: rgb(219, 219, 255);
@@ -89,3 +94,43 @@ nav {
   }
 }
 
+#adminModal{
+  padding: 20px;
+  width: 800px;
+  border: none;
+  text-align: center;
+  border-radius: 20px;
+  form{
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    input{
+      border: none;
+      padding: 20px;
+      width: 200px;
+      border-radius: 10px;
+    }
+    input[type="submit"]{
+      background-color: rgb(183, 183, 255);
+      padding: 20px;
+      width: 100px;s
+
+      &:hover{
+        cursor: pointer;
+        background-color: rgb(221, 221, 255);
+      }
+    }
+    input[type="password"]{
+      background-color: rgb(235, 235, 235);
+     width: 300px;
+    }
+    button{
+      border: none;
+      padding: 20px;
+      width: 100px;
+      border-radius: 10px;
+    }
+  }
+}

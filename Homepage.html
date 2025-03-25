@@ -10,9 +10,11 @@
   <body>
     <dialog id="adminModal">
       <h1>WELCOME ADMINS</h1>
+      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or manage the content and settings. Unauthorized access is strictly prohibited</p>
       <form action="" method="dialog" onsubmit="adminAccess()">
-        <input id="AdminPass" type="password" required />
+        <input id="AdminInput" type="password" placeholder="Passkey" required />
         <input type="submit" />
+        <button onclick="adminModal.close()">Cancel</button>
       </form>
     </dialog>
     <nav>
@@ -32,9 +34,9 @@
         <button
         onclick="adminModal.showModal()"
         class="adminbtn"
-        style="background-color: none"
-      >
-        <img src="assets/images/Icons/admin-alt.svg" alt="" /> Admin
+        style="background-color: none">
+        <img src="assets/images/Icons/admin-alt.svg" alt="" />
+        Admin
       </button>
       </div>  
     </nav>
@@ -220,7 +222,9 @@
     let MNTRPrograms = [];
 
     function adminAccess() {
-        if (AdminPass = "admins") {
+        let AdminPass = AdminInput.value
+
+        if (AdminPass === "admins") {
           window.location.href = "TDadmins.html"; // Replace with your target URL
         } else {
           alert("Wrong Pass");

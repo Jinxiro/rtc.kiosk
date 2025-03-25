@@ -15,6 +15,28 @@
       /* outline: 1px solid black; */
     }
 
+    body {
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: aquamarine;
+        margin: 0;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgb(3, 0, 36);
+        border-radius: 40px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgb(210, 177, 255);
+      }
+    }
+
     nav {
       position: sticky;
       top: 0;
@@ -24,11 +46,7 @@
       align-items: center;
       background-color: rgba(255, 255, 255, 0.381);
       backdrop-filter: blur(10px);
-      .adminbtn {
-        img {
-          height: 10px;
-        }
-      }
+    
       .logo {
         display: flex;
         justify-content: center;
@@ -157,15 +175,18 @@
           class="adminbtn"
           style="background-color: none"
         >
-          <img src="assets/images/Icons/admin-alt.svg" alt="" /> Admin
+        <img src="assets/images/Icons/admin-alt.svg" alt="">
+         Admin
         </button>
       </div>
     </nav>
     <dialog id="adminModal">
       <h1>WELCOME ADMINS</h1>
+      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or manage the content and settings. Unauthorized access is strictly prohibited</p>
       <form method="dialog" onsubmit="adminAccess()">
-        <input id="AdminPass" type="password" required/>
+        <input id="AdminInput" type="password"  placeholder="Passkey" required />
         <input type="submit" />
+        <button onclick="adminModal.close()">Cancel</button>
       </form>
     </dialog>
     <div class="aboutUs">
@@ -280,7 +301,9 @@
     </section>
     <script>
       function adminAccess() {
-        if (AdminPass = "admins") {
+        let AdminPass = AdminInput.value
+
+        if (AdminPass === "admins") {
           window.location.href = "TDadmins.html"; // Replace with your target URL
         } else {
           alert("Wrong Pass");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <title>Admin Page</title>
 </head>
 <style>
   * {
@@ -30,6 +30,7 @@
       width: 100px;
     }
   }
+  
 
   .stcards {
     margin: 20px;
@@ -115,6 +116,40 @@
     }
   }
 }
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+    .header{
+      text-align: center;
+      width: 1000px;
+      h1{
+        font-size: 70px;
+      }
+      p{
+        font-size: 25px;
+      }
+    }
+    button{
+      border: none;
+      border-radius: 10px;
+      background-color: navy;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px;
+      width: 500px;
+      padding: 20px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.19);
+      transition: 0.5s ease;
+      &:hover{
+        background-color: rgb(33, 33, 182);
+        cursor: pointer;
+      }
+    }
+  }
     #shortermTbl,
 #diplomaTbl {
   background-color: whitesmoke;
@@ -259,9 +294,13 @@
         <button onclick="MNTRStatus('Not Available')">Not Available</button>
       </dialog>
 <main>
-    <button onclick="diploma.showModal()">3 Year Diploma</button>
-    <button onclick="shortCate.showModal()">Short Term</button>
-    <button onclick="cbtModal.showModal()">Community-Based</button>
+    <div class="header">
+      <h1>WELCOME ADMINS</h1>
+      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or manage the content and settings. Unauthorized access is strictly prohibited</p>
+    </div>
+    <button onclick="diploma.showModal()">3-Year Diploma Courses</button>
+    <button onclick="shortCate.showModal()">Short-Term / Skills Upgrading Programs</button>
+    <button onclick="cbtModal.showModal()">Community-Based Skills Training</button>
 </main>
 <script>
     let currentCourselist;
