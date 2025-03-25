@@ -1,138 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Admin Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Admin Page</title>
 </head>
 <style>
   * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-   #diploma,
-#shortCate,
-#cbtModal,
-#shorterModal,
-#cbtprogramModal {
-  border: none;
-  border-radius: 10px;
-  width: 900px;
-  padding: 20px;
-  .tblheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+  #diploma,
+  #shortCate,
+  #cbtModal,
+  #shorterModal,
+  #cbtprogramModal {
+    border: none;
+    border-radius: 10px;
+    width: 900px;
+    padding: 20px;
+
+    .tblheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        padding: 5px;
+        width: 100px;
+      }
+    }
+
+
+    .stcards {
+      margin: 20px;
+      align-items: center;
+      justify-content: center;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 400px 400px;
+
+      h2 {
+        color: white;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.111);
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(32, 0, 51);
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(63, 1, 99);
+        }
+      }
+    }
+
+    .courseCard {
+      margin: 20px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: 600px;
+      gap: 20px;
+
+      .left {
+        width: 600px;
+
+        h1 {
+          text-align: center;
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+
+        .btns {
+          align-items: left;
+          justify-content: center;
+          display: grid;
+          grid-template-columns: 280px 280px;
+          gap: 10px;
+
+          h3 {
+            border-radius: 10px;
+            color: white;
+            background-color: navy;
+            padding: 15px;
+            text-align: center;
+            background-color: rgb(32, 0, 51);
+
+            &:hover {
+              cursor: pointer;
+              background-color: rgb(63, 1, 99);
+            }
+          }
+        }
+      }
+
+      .right {
+        width: 600px;
+
+        h1 {
+          text-align: center;
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+
+        .btns {
+          align-items: center;
+          justify-content: center;
+          display: grid;
+          grid-template-columns: 280px 280px;
+          gap: 10px;
+
+          h3 {
+            border-radius: 10px;
+            font-size: 15px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            background-color: rgb(32, 0, 51);
+
+            &:hover {
+              cursor: pointer;
+              background-color: rgb(63, 1, 99);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #EditDiplomaStatus,
+  #EditShortTermStatus,
+  #EditMTPStatus,
+  #EditMNTRStatus {
+    width: 1000px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+
+    h1 {
+      text-align: center;
+    }
+
+    .editorHeader {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    .statusBtns {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .available,
+      .NotAvailable {
+        padding: 20px;
+        font-size: 20px;
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+
+      .available {
+        background-color: rgb(134, 255, 134);
+      }
+
+      .NotAvailable {
+        background-color: rgb(255, 107, 107);
+      }
+    }
+
     button {
+      width: 70px;
       padding: 5px;
-      width: 100px;
     }
   }
-  
 
-  .stcards {
-    margin: 20px;
-    align-items: center;
-    justify-content: center;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 400px 400px;
-    h2 {
-      color: white;
-      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.111);
-      padding: 20px;
-      border-radius: 10px;
-      background-color: rgb(32, 0, 51);
-      &:hover {
-        cursor: pointer;
-        background-color: rgb(63, 1, 99);
-      }
-    }
-  }
-  .courseCard {
-    margin: 20px;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: 600px;
-    gap: 20px;
-
-    .left {
-      width: 600px;
-      h1 {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      .btns {
-        align-items: left;
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 280px 280px;
-        gap: 10px;
-        h3 {
-          border-radius: 10px;
-          color: white;
-          background-color: navy;
-          padding: 15px;
-          text-align: center;
-          background-color: rgb(32, 0, 51);
-          &:hover {
-            cursor: pointer;
-            background-color: rgb(63, 1, 99);
-          }
-        }
-      }
-    }
-
-    .right {
-      width: 600px;
-      h1 {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      .btns {
-        align-items: center;
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 280px 280px;
-        gap: 10px;
-        h3 {
-          border-radius: 10px;
-          font-size: 15px;
-          color: white;
-          padding: 20px;
-          text-align: center;
-          background-color: rgb(32, 0, 51);
-          &:hover {
-            cursor: pointer;
-            background-color: rgb(63, 1, 99);
-          }
-        }
-      }
-    }
-  }
-}
-main{
+  main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 80vh;
-    .header{
+
+    .header {
       text-align: center;
       width: 1000px;
-      h1{
+
+      h1 {
         font-size: 70px;
       }
-      p{
+
+      p {
         font-size: 25px;
       }
     }
-    button{
+
+    button {
       border: none;
       border-radius: 10px;
       background-color: navy;
@@ -144,183 +220,226 @@ main{
       padding: 20px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.19);
       transition: 0.5s ease;
-      &:hover{
+
+      &:hover {
         background-color: rgb(33, 33, 182);
         cursor: pointer;
       }
     }
   }
-    #shortermTbl,
-#diplomaTbl {
-  background-color: whitesmoke;
-  tr,
-  td {
-    &:hover {
-      background-color: rgb(207, 207, 207);
-    }
-  }
-  th {
-    text-align: center;
-    padding: 15px;
-  }
-  td {
-    padding: 20px;
-    width: 100%;
-  }
-}
 
-    table {
-  background-color: whitesmoke;
-  tr,
-  td {
-    &:hover {
-      background-color: rgb(207, 207, 207);
+  #shortermTbl,
+  #diplomaTbl {
+    background-color: whitesmoke;
+
+    tr,
+    td {
+      &:hover {
+        background-color: rgb(207, 207, 207);
+      }
+    }
+
+    th {
+      text-align: center;
+      padding: 15px;
+    }
+
+    td {
+      padding: 20px;
+      width: 100%;
     }
   }
-  th {
-    text-align: center;
-    padding: 15px;
+
+  table {
+    background-color: whitesmoke;
+
+    tr,
+    td {
+      &:hover {
+        background-color: rgb(207, 207, 207);
+      }
+    }
+
+    th {
+      text-align: center;
+      padding: 15px;
+    }
+
+    td {
+      padding: 20px;
+
+      button {
+        width: 70px;
+        padding: 5px;
+      }
+    }
   }
-  td {
-    padding: 20px;
-  }
-}
 </style>
+
 <body>
-    <nav>
-        <div class="logo">
-          <img src="assets/images/Korphil logo (icon).png" alt="" />
-          <h1>
-            Regional Training Center
-            <br />
-            KorPhil Davao
-          </h1>
-        </div>
-        <!-- <h1>WELCOME</h1> -->
-        <div class="navBtn">
-          <a href="Homepage.html"><button>Home</button></a>
-          <button>Contact Us</button>
-          <button>About Us</button>
-          
-        </div>
-      </nav>
-      <dialog id="diploma">
-        <div class="tblheader">
-          <h1>3 year Diploma</h1>
-          <button onclick="diploma.close()">Close</button>
-        </div>
-        <table id="diplomaTbl">
-        </table>
-      </dialog>
+  <nav>
+    <div class="logo">
+      <img src="assets/images/Korphil logo (icon).png" alt="" />
+      <h1>
+        Regional Training Center
+        <br />
+        KorPhil Davao
+      </h1>
+    </div>
+    <!-- <h1>WELCOME</h1> -->
+    <div class="navBtn">
+      <a href="Homepage.html"><button>Home</button></a>
+      <button>Contact Us</button>
+      <button>About Us</button>
 
-      <dialog id="shorterModal">
-        <div class="tblheader">
-          <h1> <span id="stCert"></span> Programs</h1>
-          <button onclick="shorterModal.close()">Close</button>
-        </div>
-        <table id="shortermTbl">
-        </table>
-      </dialog>
+    </div>
+  </nav>
+  <dialog id="diploma">
+    <div class="tblheader">
+      <h1>3 year Diploma</h1>
+      <button onclick="diploma.close()">Close</button>
+    </div>
+    <table id="diplomaTbl">
+    </table>
+  </dialog>
 
-      <dialog id="cbtprogramModal">
-        <div class="tblheader">
-          <h1> <span id="cbtCert"></span> Programs</h1>
-          <button onclick="cbtprogramModal.close()">Close</button>
-        </div>
-        <table id="cbtTbl">
-        </table>
-      </dialog>
+  <dialog id="shorterModal">
+    <div class="tblheader">
+      <h1> <span id="stCert"></span> Programs</h1>
+      <button onclick="shorterModal.close()">Close</button>
+    </div>
+    <table id="shortermTbl">
+    </table>
+  </dialog>
 
-      <dialog id="shortCate">
-        <div class="tblheader">
-  
-          <h1>Short-Term / Skills Upgrading Programs</h1>
-          <button onclick="shortCate.close()">Close</button>
-        </div>
-        <div class="stcards">
-          <h2 onclick="renderShorterm('NC I')">NC I</h2>
-          <h2 onclick="renderShorterm('NC II')">NC II</h2>
-          <h2 onclick="renderShorterm('NC III')">NC III</h2>
-          <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
-          <h2 onclick="renderShorterm('LV I')">Level I</h2>
-          <h2 onclick="renderShorterm('LV II')">Level II</h2>
-          <h2 onclick="renderShorterm('ELearning')">Others</h2>
-        </div>
-      </dialog>
+  <dialog id="cbtprogramModal">
+    <div class="tblheader">
+      <h1> <span id="cbtCert"></span> Programs</h1>
+      <button onclick="cbtprogramModal.close()">Close</button>
+    </div>
+    <table id="cbtTbl">
+    </table>
+  </dialog>
 
-      <dialog id="cbtModal">
-        <div class="tblheader">
-  
-          <h1>Community-Based Skills Training</h1>
-          <button onclick="cbtModal.close()">Close</button>
-        </div>
-        <div class="courseCard">
-          <div class="left">
-            <h1>Mobile Training Program (MTP)</h1>
-            <div class="btns">
-              <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
-              <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
-              <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
-              <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
-            </div>
-          </div>
-          <div class="right">
-            <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
-            <div class="btns">
-              <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
-              <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
-            </div>
-          </div>
-      </dialog>
+  <dialog id="shortCate">
+    <div class="tblheader">
 
-      <dialog id="EditDiplomaStatus">
-        <h1 id="diplomaName"></h1>
-        <button onclick="DiplomaStatus('Available')">Available</button>
-        <button onclick="DiplomaStatus('Not Available')">Not Available</button>
-      </dialog>
-      <dialog id="EditShortTermStatus">
-        <h1 id="StName"></h1>
-        <button onclick="ShortTermStatus('Available')">Available</button>
-        <button onclick="ShortTermStatus('Not Available')">Not Available</button>
-      </dialog>
-      <dialog id="EditMTPStatus">
-        <h1 id="MTPName"></h1>
-        <button onclick="MTPStatus('Available')">Available</button>
-        <button onclick="MTPStatus('Not Available')">Not Available</button>
-      </dialog>
-      <dialog id="EditMNTRStatus">
-        <h1 id="MNTRName"></h1>
-        <button onclick="MNTRStatus('Available')">Available</button>
-        <button onclick="MNTRStatus('Not Available')">Not Available</button>
-      </dialog>
-<main>
+      <h1>Short-Term / Skills Upgrading Programs</h1>
+      <button onclick="shortCate.close()">Close</button>
+    </div>
+    <div class="stcards">
+      <h2 onclick="renderShorterm('NC I')">NC I</h2>
+      <h2 onclick="renderShorterm('NC II')">NC II</h2>
+      <h2 onclick="renderShorterm('NC III')">NC III</h2>
+      <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
+      <h2 onclick="renderShorterm('LV I')">Level I</h2>
+      <h2 onclick="renderShorterm('LV II')">Level II</h2>
+      <h2 onclick="renderShorterm('ELearning')">Others</h2>
+    </div>
+  </dialog>
+
+  <dialog id="cbtModal">
+    <div class="tblheader">
+
+      <h1>Community-Based Skills Training</h1>
+      <button onclick="cbtModal.close()">Close</button>
+    </div>
+    <div class="courseCard">
+      <div class="left">
+        <h1>Mobile Training Program (MTP)</h1>
+        <div class="btns">
+          <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
+          <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
+          <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
+          <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
+        <div class="btns">
+          <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
+          <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+        </div>
+      </div>
+  </dialog>
+
+  <dialog id="EditDiplomaStatus">
+    <div class="editorHeader">
+      <button onclick="EditDiplomaStatus.close()">Cancel</button>
+    </div>
+    <h1 id="diplomaName"></h1>
+    <p id="diplomaDes"></p>
+    <div class="statusBtns">
+
+      <button class="available" onclick="DiplomaStatus('Available')">✔ Available</button>
+      <button class="NotAvailable" onclick="DiplomaStatus('Not Available')">✗ Not Available</button>
+    </div>
+  </dialog>
+  <dialog id="EditShortTermStatus">
+    <div class="editorHeader">
+      <button onclick="EditShortTermStatus.close()">Cancel</button>
+    </div>
+    <h1 id="StName"></h1>
+    <p id="STDes"></p>
+    <div class="statusBtns">
+
+      <button class="available" onclick="ShortTermStatus('Available')">✔ Available</button>
+      <button class="NotAvailable" onclick="ShortTermStatus('Not Available')">✗ Not Available</button>
+    </div>
+  </dialog>
+  <dialog id="EditMTPStatus">
+    <div class="editorHeader">
+      <button onclick="EditMTPStatus.close()">Cancel</button>
+    </div>
+    <h1 id="MTPName"></h1>
+    <p id="MTPDes"></p>
+    <div class="statusBtns">
+      
+      <button class="available" onclick="MTPStatus('Available')">✔ Available</button>
+      <button class="NotAvailable" onclick="MTPStatus('Not Available')">✗ Not Available</button>
+    </div>
+  </dialog>
+  <dialog id="EditMNTRStatus">
+    <div class="editorHeader">
+      <button onclick="EditMNTRStatus.close()">Cancel</button>
+    </div>
+    <h1 id="MNTRName"></h1>
+    <p id="MNTRDes"></p>
+    <div class="statusBtns">
+
+      <button class="available" onclick="MNTRStatus('Available')">✔ Available</button>
+      <button class="NotAvailable" onclick="MNTRStatus('Not Available')">✗ Not Available</button>
+    </div>
+  </dialog>
+  <main>
     <div class="header">
       <h1>WELCOME ADMINS</h1>
-      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or manage the content and settings. Unauthorized access is strictly prohibited</p>
+      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify,
+        or manage the content and settings. Unauthorized access is strictly prohibited</p>
     </div>
     <button onclick="diploma.showModal()">3-Year Diploma Courses</button>
     <button onclick="shortCate.showModal()">Short-Term / Skills Upgrading Programs</button>
     <button onclick="cbtModal.showModal()">Community-Based Skills Training</button>
-</main>
-<script>
+  </main>
+  <script>
     let currentCourselist;
-     let CourseLists = [];
-     let shortTerms = [];
-     let currentShortTerm;
-     let currentMTP;
-     let currentMNTR;
-     let MTPPrograms = [];
+    let CourseLists = [];
+    let shortTerms = [];
+    let currentShortTerm;
+    let currentMTP;
+    let currentMNTR;
+    let MTPPrograms = [];
     let MNTRPrograms = [];
 
     function adminAccess() {
-        if (AdminPass = "admins") {
-          window.location.href = "TDadmins.html"; // Replace with your target URL
-        } else {
-          alert("Wrong Pass");
-        }
+      if (AdminPass = "admins") {
+        window.location.href = "TDadmins.html"; // Replace with your target URL
+      } else {
+        alert("Wrong Pass");
       }
+    }
 
-     async function getCourse() {
+    async function getCourse() {
       // let searchstr = searchInput.value;
       let response = await fetch(
         `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
@@ -351,11 +470,12 @@ main{
         (CourseList) => CourseList.id == id
       );
       diplomaName.innerHTML = currentCourselist.courseName;
+      diplomaDes.innerHTML = currentCourselist.description;
       EditDiplomaStatus.showModal();
     }
 
-    async function DiplomaStatus(status){
-        await fetch(
+    async function DiplomaStatus(status) {
+      await fetch(
         `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditDiploma&status=${status}&id=${currentCourselist.id}`
       );
       EditDiplomaStatus.close();
@@ -394,11 +514,12 @@ main{
         (shortTerm) => shortTerm.id == id
       );
       StName.innerHTML = currentShortTerm.courseName;
+      STDes.innerHTML = currentShortTerm.description;
       EditShortTermStatus.showModal();
     }
 
-    async function ShortTermStatus(status){
-        await fetch(
+    async function ShortTermStatus(status) {
+      await fetch(
         `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditST&status=${status}&id=${currentShortTerm.id}`
       );
       EditShortTermStatus.close();
@@ -439,11 +560,12 @@ main{
         (MTPProgram) => MTPProgram.id == id
       );
       MTPName.innerHTML = currentMTP.courseName;
+      MTPDes.innerHTML = currentMTP.description;
       EditMTPStatus.showModal();
     }
 
-    async function MTPStatus(status){
-        await fetch(
+    async function MTPStatus(status) {
+      await fetch(
         `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditMTP&status=${status}&id=${currentMTP.id}`
       );
       EditMTPStatus.close();
@@ -484,11 +606,12 @@ main{
         (MNTRProgram) => MNTRProgram.id == id
       );
       MNTRName.innerHTML = currentMNTR.courseName;
+      MNTRDes.innerHTML = currentMNTR.description;
       EditMNTRStatus.showModal();
     }
 
-    async function MNTRStatus(status){
-        await fetch(
+    async function MNTRStatus(status) {
+      await fetch(
         `http://localhost/rtc.kiosk/api/kioskdb.php?action=EditMNTR&status=${status}&id=${currentMNTR.id}`
       );
       EditMNTRStatus.close();
@@ -496,7 +619,7 @@ main{
     }
 
     getCourse();
-</script>
+  </script>
 </body>
 
 </html>
