@@ -175,8 +175,8 @@
       </div>
       <div class="button-area">
         <div class="timeClock">
-          <h1>12:12 PM</h1>
-          <p>Friday, September 8, 2023</p>
+          <h1 id="timeNow"></h1>
+          <p id="dateNow"></p>
         </div>
         <a href="Documentation.html">
           <div class="btn">
@@ -220,6 +220,26 @@
      let currentShortTerm;
      let MTPPrograms = [];
     let MNTRPrograms = [];
+
+    function timezoneNow(){
+      // let time = timeNow;
+      setInterval(() =>{
+        let t = new Date();
+        
+        timeNow.innerHTML = t.toLocaleTimeString("en-US", { 
+    hour: "numeric", 
+    minute: "2-digit"
+});
+      }, 1000);
+      let d = new Date();
+      dateNow.innerHTML = d.toLocaleDateString("en-US", { 
+        weekday: "long", 
+    month: "long", 
+    day: "numeric", 
+    year: "numeric" 
+});
+    }
+    timezoneNow();
 
     function adminAccess() {
         let AdminPass = AdminInput.value
