@@ -1,323 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="./assets/home.css" />
-  </head>
-  <body>
-    <dialog id="adminModal">
-      <h1>WELCOME ADMINS</h1>
-      <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or manage the content and settings. Unauthorized access is strictly prohibited</p>
-      <form action="" method="dialog" onsubmit="adminAccess()">
-        <input id="AdminInput" type="password" placeholder="Passkey" required />
-        <input type="submit" />
-        <button onclick="adminModal.close()">Cancel</button>
-      </form>
-    </dialog>
-    <nav>
-      <div class="logo">
-        <img src="assets/images/Korphil logo (icon).png" alt="" />
-        <h1>
-          Regional Training Center
-          <br />
-          KorPhil Davao
-        </h1>
-      </div>
-      <!-- <h1>WELCOME</h1> -->
-      <div class="navBtn">
-    
-        <a href="Contact.html"><button>Contact Us</button></a>
-        <a href="Contact.html"><button>About Us</button></a>
-        <button
-        onclick="adminModal.showModal()"
-        class="adminbtn"
-        style="background-color: none">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="./assets/home.css" />
+</head>
+
+<body>
+  <dialog id="adminModal">
+    <h1>WELCOME ADMINS</h1>
+    <p>This section is restricted to authorized administrators. Only users with admin privileges can access, modify, or
+      manage the content and settings. Unauthorized access is strictly prohibited</p>
+    <form action="" method="dialog" onsubmit="adminAccess()">
+      <input id="AdminInput" type="password" placeholder="Passkey" required />
+      <input type="submit" />
+      <button onclick="adminModal.close()">Cancel</button>
+    </form>
+  </dialog>
+  <nav>
+    <div class="logo">
+      <img src="assets/images/Korphil logo (icon).png" alt="" />
+      <h1>
+        Regional Training Center
+        <br />
+        KorPhil Davao
+      </h1>
+    </div>
+    <!-- <h1>WELCOME</h1> -->
+    <div class="navBtn">
+
+      <a href="Contact.html"><button>Contact Us</button></a>
+      <a href="Contact.html"><button>About Us</button></a>
+      <button onclick="adminModal.showModal()" class="adminbtn" style="background-color: none">
         <img src="assets/images/Icons/admin-alt.svg" alt="" />
         Admin
       </button>
-      </div>  
-    </nav>
-
-    <dialog id="diploma">
-      <div class="tblheader">
-        <h1>3 year Diploma</h1>
-        <button onclick="diploma.close()">Close</button>
-      </div>
-      <table id="diplomaTbl">
-      </table>
-    </dialog>
-
-    <dialog id="shorterModal">
-      <div class="tblheader">
-        <h1> <span id="stCert"></span> Programs</h1>
-        <button onclick="shorterModal.close()">Close</button>
-      </div>
-      <table id="shortermTbl">
-      </table>
-    </dialog>
-
-    <dialog id="shortCate">
-      <div class="tblheader">
-
-        <h1>Short-Term / Skills Upgrading Programs</h1>
-        <button onclick="shortCate.close()">Close</button>
-      </div>
-      <div class="stcards">
-        <h2 onclick="renderShorterm('NC I')">NC I</h2>
-        <h2 onclick="renderShorterm('NC II')">NC II</h2>
-        <h2 onclick="renderShorterm('NC III')">NC III</h2>
-        <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
-        <h2 onclick="renderShorterm('LV I')">Level I</h2>
-        <h2 onclick="renderShorterm('LV II')">Level II</h2>
-        <h2 onclick="renderShorterm('ELearning')">Others</h2>
-      </div>
-    </dialog>
-
-    <dialog id="cbtprogramModal">
-      <div class="tblheader">
-        <h1> <span id="cbtCert"></span> Programs</h1>
-        <button onclick="cbtprogramModal.close()">Close</button>
-      </div>
-      <table id="cbtTbl">
-      </table>
-    </dialog>
-
-    <dialog id="cbtModal">
-      <div class="tblheader">
-
-        <h1>Community-Based Skills Training</h1>
-        <button onclick="cbtModal.close()">Close</button>
-      </div>
-      <div class="courseCard">
-        <div class="left">
-          <h1>Mobile Training Program (MTP)</h1>
-          <div class="btns">
-            <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
-            <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
-            <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
-            <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
-          </div>
-        </div>
-        <div class="right">
-          <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
-          <div class="btns">
-            <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
-            <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
-          </div>
-        </div>
-    </dialog>
-
-    <dialog id="registerModal">
-      <div class="headmodal">
-        <h1>Courses Offered</h1>
-        <button onclick="registerModal.close()">Cancel</button>
-      </div>
-      <div class="registerModal">
-        <div class="contentCard">
-          <h3>3-Year Diploma Courses</h3>
-          <p>
-            Pursuant to Executive Order No. 83 Series of 2012 also known as the
-            Philippine Qualifications Framework (PQF), the Center is now
-            piloting 3-Year Diploma programs in Level 5 category (based on PQF
-            8-Level Descriptors) considering RTC-KorPhil Davao as the Center of
-            Excellence for TVET in Mindanao.
-          </p>
-          <button onclick="diploma.showModal()">
-           Continue
-          </button>
-        </div>
-        <div class="contentCard">
-          <h3>Short-Term / Skills Upgrading Programs</h3>
-          <p>
-            Courses designed to accommodate workers, for life-long training, and
-            for those who did not avail the 3-Year Diploma programs.
-            Qualifications (courses with TESDA Training Regulations or TR) in
-            diploma programs are also offered individually in separate
-            schedules.
-          </p>
-          <button onclick="shortCate.showModal()">
-            Continue
-          </button>
-        </div>
-        <div class="contentCard">
-          <h3>Community-Based Skills Training</h3>
-          <p>
-            In cooperation with Community Leaders (like political, church, or
-            organization leaders) skills trainings are brought to the community
-            to reach out the grassroots. Venues and schedules are depending on
-            the stipulations in the Memorandum of Agreement (MOA) between the
-            Center & the sponsoring partner.
-          </p>
-          <button  onclick="cbtModal.showModal()">
-            Continue
-          </button>
-        </div>
-      </div>
-    </dialog>
-
-  
-    <main>
-      <div class="leftContainer">
-        <div class="roteteShape">
-          <img
-            src="data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22%3E%3Cstop offset=%220%25%22 stop-color=%22%23acb7ff%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%23e2e3ff%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M931 644.5Q898 789 759 829t-270.5 76Q357 941 264 840T140.5 619.5q-30.5-119.5-10-246t133-190.5q112.5-64 242-81t230 68.5Q836 256 900 378t31 266.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M931 644.5Q898 789 759 829t-270.5 76Q357 941 264 840T140.5 619.5q-30.5-119.5-10-246t133-190.5q112.5-64 242-81t230 68.5Q836 256 900 378t31 266.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-            alt=""
-          />
-        </div>
-        <h1>I Create Success Because I Can</h1>
-        <p>
-          Welcome to TESDA Regional Training Center – Korea Philippines
-          Vocational Training Center, Davao
-        </p>
-      </div>
-      <div class="button-area">
-        <div class="timeClock">
-          <h1 id="timeNow"></h1>
-          <p id="dateNow"></p>
-        </div>
-        <a href="Documentation.html">
-          <div class="btn">
-            <img src="assets/images/Icons/catalog-magazine.svg" alt="" />
-            <p>Get Started</p>
-          </div>
-        </a>
-        <div class="btn" onclick="registerModal.showModal()">
-          <img src="assets/images/Icons/clipboard-list.svg" alt="" />
-          <p>Course List</p>
-        </div>
-        <a href="InquiryPage.html   ">
-          <div class="btn">
-            <img src="assets/images/Icons/student-alt.svg" alt="" />
-            <p>Inquiries</p>
-          </div>
-        </a>
-
-        <div class="btn" onclick="pdfViewer.showModal()">
-          <img src="assets/images/Icons/feedback-alt.svg" alt="" />
-          <p>Feedback</p>
-        </div>
-      </div>
-      <dialog id="pdfViewer">
-        <embed src="assets/Feedback Form (Fillable).pdf" type="" />
-        <div class="closebtn">
-          <button onclick="pdfViewer.close()">close</button>
-        </div>
-      </dialog>
-    </main>
-
-    <div class="translator">
-
-      <div id="googleTranslate"></div>
     </div>
-  </body>
+  </nav>
 
-  <script>
-     let CourseLists = [];
-     let shortTerms = [];
-     let currentShortTerm;
-     let MTPPrograms = [];
-    let MNTRPrograms = [];
+  <dialog id="diploma">
+    <div class="tblheader">
+      <h1>3 year Diploma</h1>
+      <button onclick="diploma.close()">Close</button>
+    </div>
+    <table id="diplomaTbl">
+    </table>
+  </dialog>
 
-    function timezoneNow(){
-      // let time = timeNow;
-      setInterval(() =>{
-        let t = new Date();
-        
-        timeNow.innerHTML = t.toLocaleTimeString("en-US", { 
-    hour: "numeric", 
-    minute: "2-digit"
-});
-      }, 1000);
-      let d = new Date();
-      dateNow.innerHTML = d.toLocaleDateString("en-US", { 
-        weekday: "long", 
-    month: "long", 
-    day: "numeric", 
-    year: "numeric" 
-});
+  <dialog id="shorterModal">
+    <div class="tblheader">
+      <h1> <span id="stCert"></span> Programs</h1>
+      <button onclick="shorterModal.close()">Close</button>
+    </div>
+    <table id="shortermTbl">
+    </table>
+  </dialog>
+
+  <dialog id="shortCate">
+    <div class="tblheader">
+
+      <h1>Short-Term / Skills Upgrading Programs</h1>
+      <button onclick="shortCate.close()">Close</button>
+    </div>
+    <div class="stcards">
+      <h2 onclick="renderShorterm('NC I')">NC I</h2>
+      <h2 onclick="renderShorterm('NC II')">NC II</h2>
+      <h2 onclick="renderShorterm('NC III')">NC III</h2>
+      <h2 onclick="renderShorterm('NC IV')">NC IV</h2>
+      <h2 onclick="renderShorterm('LV I')">Level I</h2>
+      <h2 onclick="renderShorterm('LV II')">Level II</h2>
+      <h2 onclick="renderShorterm('ELearning')">Others</h2>
+    </div>
+  </dialog>
+
+  <dialog id="cbtprogramModal">
+    <div class="tblheader">
+      <h1> <span id="cbtCert"></span> Programs</h1>
+      <button onclick="cbtprogramModal.close()">Close</button>
+    </div>
+    <table id="cbtTbl">
+    </table>
+  </dialog>
+
+  <dialog id="cbtModal">
+    <div class="tblheader">
+
+      <h1>Community-Based Skills Training</h1>
+      <button onclick="cbtModal.close()">Close</button>
+    </div>
+    <div class="courseCard">
+      <div class="left">
+        <h1>Mobile Training Program (MTP)</h1>
+        <div class="btns">
+          <h3 onclick="renderCbtMtp('NC I')">NC I</h3>
+          <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
+          <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
+          <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
+        <div class="btns">
+          <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
+          <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+        </div>
+      </div>
+  </dialog>
+
+  <dialog id="registerModal">
+    <div class="headmodal">
+      <h1>Courses Offered</h1>
+      <button onclick="registerModal.close()">Cancel</button>
+    </div>
+    <div class="registerModal">
+      <div class="contentCard">
+        <h3>3-Year Diploma Courses</h3>
+        <p>
+          Pursuant to Executive Order No. 83 Series of 2012 also known as the
+          Philippine Qualifications Framework (PQF), the Center is now
+          piloting 3-Year Diploma programs in Level 5 category (based on PQF
+          8-Level Descriptors) considering RTC-KorPhil Davao as the Center of
+          Excellence for TVET in Mindanao.
+        </p>
+        <button onclick="diploma.showModal()">
+          Continue
+        </button>
+      </div>
+      <div class="contentCard">
+        <h3>Short-Term / Skills Upgrading Programs</h3>
+        <p>
+          Courses designed to accommodate workers, for life-long training, and
+          for those who did not avail the 3-Year Diploma programs.
+          Qualifications (courses with TESDA Training Regulations or TR) in
+          diploma programs are also offered individually in separate
+          schedules.
+        </p>
+        <button onclick="shortCate.showModal()">
+          Continue
+        </button>
+      </div>
+      <div class="contentCard">
+        <h3>Community-Based Skills Training</h3>
+        <p>
+          In cooperation with Community Leaders (like political, church, or
+          organization leaders) skills trainings are brought to the community
+          to reach out the grassroots. Venues and schedules are depending on
+          the stipulations in the Memorandum of Agreement (MOA) between the
+          Center & the sponsoring partner.
+        </p>
+        <button onclick="cbtModal.showModal()">
+          Continue
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+
+  <main>
+    <div class="leftContainer">
+      <div class="roteteShape">
+        <img
+          src="data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22%3E%3Cstop offset=%220%25%22 stop-color=%22%23acb7ff%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%23e2e3ff%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M931 644.5Q898 789 759 829t-270.5 76Q357 941 264 840T140.5 619.5q-30.5-119.5-10-246t133-190.5q112.5-64 242-81t230 68.5Q836 256 900 378t31 266.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M931 644.5Q898 789 759 829t-270.5 76Q357 941 264 840T140.5 619.5q-30.5-119.5-10-246t133-190.5q112.5-64 242-81t230 68.5Q836 256 900 378t31 266.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+          alt="" />
+      </div>
+      <h1>I Create Success Because I Can</h1>
+      <p>
+        Welcome to TESDA Regional Training Center – Korea Philippines
+        Vocational Training Center, Davao
+      </p>
+    </div>
+    <div class="button-area">
+      <div class="timeClock">
+        <h1 id="timeNow"></h1>
+        <p id="dateNow"></p>
+      </div>
+      <a href="Documentation.html">
+        <div class="btn">
+          <img src="assets/images/Icons/catalog-magazine.svg" alt="" />
+          <p>Get Started</p>
+        </div>
+      </a>
+      <div class="btn" onclick="registerModal.showModal()">
+        <img src="assets/images/Icons/clipboard-list.svg" alt="" />
+        <p>Course List</p>
+      </div>
+      <a href="InquiryPage.html   ">
+        <div class="btn">
+          <img src="assets/images/Icons/student-alt.svg" alt="" />
+          <p>Inquiries</p>
+        </div>
+      </a>
+
+      <div class="btn" onclick="pdfViewer.showModal()">
+        <img src="assets/images/Icons/feedback-alt.svg" alt="" />
+        <p>Feedback</p>
+      </div>
+    </div>
+    <dialog id="pdfViewer">
+      <embed src="assets/Feedback Form (Fillable).pdf" type="" />
+      <div class="closebtn">
+        <button onclick="pdfViewer.close()">close</button>
+      </div>
+    </dialog>
+  </main>
+
+  <div class="translator">
+
+    <div id="googleTranslate"></div>
+  </div>
+</body>
+
+<script>
+  let CourseLists = [];
+  let shortTerms = [];
+  let currentShortTerm;
+  let MTPPrograms = [];
+  let MNTRPrograms = [];
+
+  function timezoneNow() {
+    // let time = timeNow;
+    setInterval(() => {
+      let t = new Date();
+
+      timeNow.innerHTML = t.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }, 1000);
+    let d = new Date();
+    dateNow.innerHTML = d.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+  timezoneNow();
+
+  function adminAccess() {
+    let AdminPass = AdminInput.value
+
+    if (AdminPass === "admins") {
+      window.location.href = "TDadmins.html"; // Replace with your target URL
+    } else {
+      alert("Wrong Pass");
     }
-    timezoneNow();
+  }
 
-    function adminAccess() {
-        let AdminPass = AdminInput.value
+  async function getCourse() {
+    // let searchstr = searchInput.value;
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
+    );
 
-        if (AdminPass === "admins") {
-          window.location.href = "TDadmins.html"; // Replace with your target URL
-        } else {
-          alert("Wrong Pass");
-        }
-      }
+    CourseLists = await response.json();
+    console.log(CourseLists);
 
-     async function getCourse() {
-      // let searchstr = searchInput.value;
-      let response = await fetch(
-        `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
-      );
-
-      CourseLists = await response.json();
-      console.log(CourseLists);
-
-      diplomaTbl.innerHTML = `<tr>
+    diplomaTbl.innerHTML = `<tr>
           <th>Program</th>
           <th>Duration</th>
           <th>Status</th>
         </tr>`;
-      for (const CourseList of CourseLists) {
-        diplomaTbl.innerHTML += `
+    for (const CourseList of CourseLists) {
+      diplomaTbl.innerHTML += `
     
         <tr>
           <td>${CourseList.courseName}</td>
           <td>3 Years</td>
           <td>${CourseList.status}</td>
         </tr>`;
-      }
     }
+  }
 
-    async function renderShorterm(stprogram) {
-      console.log(stprogram);
-      let response = await fetch(
-        `http://localhost/rtc.kiosk/api/kioskdb.php?action=shortterm&search=${stprogram}`
-      );
-      shortTerms = await response.json();
-      console.log(shortTerms);
+  async function renderShorterm(stprogram) {
+    console.log(stprogram);
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=shortterm&search=${stprogram}`
+    );
+    shortTerms = await response.json();
+    console.log(shortTerms);
 
-      shortermTbl.innerHTML = `<tr>
+    shortermTbl.innerHTML = `<tr>
             <th>Program</th>
             <th>Certification</th>
             <th>Status</th>
           </tr>`;
-      for (const shorTerm of shortTerms) {
-        shortermTbl.innerHTML += `
+    for (const shorTerm of shortTerms) {
+      shortermTbl.innerHTML += `
             <tr   onclick="shortTermDesc(${shorTerm.id})">
             <td>${shorTerm.courseName}</td>
             <td>${shorTerm.certification}</td>
             <td>${shorTerm.status}</td>
           </tr>
             `;
-      }
-      stCert.innerHTML = stprogram;
-      shorterModal.showModal();
     }
+    stCert.innerHTML = stprogram;
+    shorterModal.showModal();
+  }
 
-    async function renderCbtMtp(cbtprogram) {
-      console.log(cbtprogram);
-      let response = await fetch(
-        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MTP&search=${cbtprogram}`
-      );
-      MTPPrograms = await response.json();
-      console.log(MTPPrograms);
+  async function renderCbtMtp(cbtprogram) {
+    console.log(cbtprogram);
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MTP&search=${cbtprogram}`
+    );
+    MTPPrograms = await response.json();
+    console.log(MTPPrograms);
 
-      cbtTbl.innerHTML = `<tr>
+    cbtTbl.innerHTML = `<tr>
             <th>Program</th>
             <th>Certification</th>
             <th>Under Program</th>
             <th>Status</th>
           </tr>`;
-      for (const MTPProgram of MTPPrograms) {
-        cbtTbl.innerHTML += `
+    for (const MTPProgram of MTPPrograms) {
+      cbtTbl.innerHTML += `
             <tr onclick="shortTermDesc(${MTPProgram.id})">
             <td>${MTPProgram.courseName}</td>
             <td>${MTPProgram.certification}</td>
@@ -325,59 +324,57 @@
             <td>${MTPProgram.status}</td>
           </tr>
             `;
-      }
-      cbtCert.innerHTML = cbtprogram;
-      cbtprogramModal.showModal();
     }
+    cbtCert.innerHTML = cbtprogram;
+    cbtprogramModal.showModal();
+  }
 
 
-    async function renderCbtMNTR(MNTR) {
-      console.log(MNTR);
-      let response = await fetch(
-        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
-      );
-      MNTRPrograms = await response.json();
-      console.log(MNTRPrograms);
+  async function renderCbtMNTR(MNTR) {
+    console.log(MNTR);
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
+    );
+    MNTRPrograms = await response.json();
+    console.log(MNTRPrograms);
 
-      cbtTbl.innerHTML = `<tr>
+    cbtTbl.innerHTML = `<tr>
             <th>Program</th>
             <th>Under Program</th>
             <th>Status</th>
           </tr>`;
-      for (const MNTRProgram of MNTRPrograms) {
-        cbtTbl.innerHTML += `
+    for (const MNTRProgram of MNTRPrograms) {
+      cbtTbl.innerHTML += `
             <tr onclick="shortTermDesc(${MNTRProgram.id})">
             <td>${MNTRProgram.courseName}</td>
             <td>${MNTRProgram.program}</td>
             <td>${MNTRProgram.status}</td>
           </tr>
             `;
-      }
-      cbtCert.innerHTML = MNTR;
-      cbtprogramModal.showModal();
     }
+    cbtCert.innerHTML = MNTR;
+    cbtprogramModal.showModal();
+  }
 
-    getCourse();
-  </script>
-  <script type="text/javascript">
-  
+  getCourse();
+</script>
+<script type="text/javascript">
 
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {
-          // pageLanguage: "en",
-          includedLanguages: "en,fil,ceb",
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false, 
-        },
-        "googleTranslate"
-      );
-    }
-  </script>
 
-  <script
-    type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  ></script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        // pageLanguage: "en",
+        includedLanguages: "en,fil,ceb",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+      },
+      "googleTranslate"
+    );
+  }
+</script>
+
+<script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </html>
