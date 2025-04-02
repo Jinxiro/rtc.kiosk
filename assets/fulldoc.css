@@ -105,6 +105,7 @@ main {
       opacity: 0.2;
       position: absolute;
       z-index: -1;
+      width: 100%;
     }
     .greetContents {
       display: flex;
@@ -692,6 +693,26 @@ main {
     }
   }
 
+  #cebVideoST{
+        
+    .cebHeader{
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        padding: 5px;
+        width: 100px;
+      }
+    }
+    iframe{
+      border: none;
+      border-radius: 10px;
+      height: 700px;
+      width: 1200px;
+    }
+  }
+
   .shortTerm {
     display: flex;
     justify-content: center;
@@ -711,12 +732,17 @@ main {
     .bodyCourse {
       padding: 40px;
       border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       iframe {
         height: 600px;
         width: 1200px;
         border: none;
         border-radius: 20px;
+        margin-bottom: 20px;
       }
       .programdetails {
         display: flex;
@@ -791,6 +817,25 @@ main {
       }
     }
   }
+  #cebVideoCBP{
+        
+    .cebHeader{
+      margin: 10px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        padding: 5px;
+        width: 100px;
+      }
+    }
+    iframe{
+      border: none;
+      border-radius: 10px;
+      height: 700px;
+      width: 1200px;
+    }
+  }
 
   .communityBased {
     display: flex;
@@ -811,12 +856,17 @@ main {
     .bodyCourse {
       padding: 40px;
       border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       iframe {
         height: 600px;
         width: 1200px;
         border: none;
         border-radius: 20px;
+        margin-bottom: 20px;
       }
       .programdetails {
         display: flex;

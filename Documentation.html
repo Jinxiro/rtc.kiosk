@@ -46,7 +46,7 @@
   </div>
   <main>
     <section class="greet" id="greet">
-      <img src="assets/images/admin/Admin_outside1.jpeg" alt="">
+      <img src="assets/images/admin/KOICA.jpeg" alt="">
       <div class="greetContents">
         <h1>Hello, Student!</h1>
         <p>
@@ -438,6 +438,8 @@
       </a>
     </section>
 
+   
+
     <section class="shortTerm" id="shortTerm">
       <h1>Short-Term/Skills Upgrading Programs</h1>
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -456,6 +458,16 @@
 
         </table>
       </dialog>
+      <dialog id="cebVideoST">
+        <div class="cebHeader">
+  
+          <h1>List of Short-Term Programs (Cebuano)</h1>
+          <button onclick="cebVideoST.close()">close</button>
+        </div>
+        <iframe src="https://youtube.com/embed/0Mrh0SFmZBg?autoplay=1">
+        </iframe>
+      </dialog>
+
       <dialog id="shorterDetails">
         <h1 id="programName"></h1>
         <h1 id="CertName"></h1>
@@ -464,6 +476,7 @@
       <div class="bodyCourse">
         <iframe src="https://youtube.com/embed/p0M0TKwHUbs?autoplay=1 ">
         </iframe>
+        <button onclick="cebVideoST.showModal()">Bisaya/Cebuano Version</button>
         <div class="programdetails" id="">
           <h1>AVAILABLE PROGRAMS</h1>
           <div class="courseCard">
@@ -481,6 +494,18 @@
         <button href="">Enroll Now!</button>
       </a>
     </section>
+
+
+    <dialog id="cebVideoCBP">
+      <div class="cebHeader">
+
+        <h1>Community-Based Program (Cebuano)</h1>
+        <button onclick="cebVideoCBP.close()">close</button>
+      </div>
+      <iframe src="https://youtube.com/embed/VbXCWBZov-8?autoplay=1">
+      </iframe>
+      
+    </dialog>
 
     <section class="communityBased" id="communityBased">
       <h1>Community-Based Skills Training</h1>
@@ -507,6 +532,7 @@
       <div class="bodyCourse">
         <iframe src="https://youtube.com/embed/w_0R1ISYxD0?autoplay=1 ">
         </iframe>
+        <button onclick="cebVideoCBP.showModal()">Bisaya/Cebuano Version</button>
         <div class="programdetails" id="">
           <h1>AVAILABLE PROGRAMS</h1>
           <div class="courseCard">
