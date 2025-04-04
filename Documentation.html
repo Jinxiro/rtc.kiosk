@@ -370,7 +370,7 @@
           <div class="cebHeader">
 
             <h1>Training Department Inquiry (Cebuano)</h1>
-            <button onclick="cebVideoplayer.close()">close</button>
+            <button onclick="cebVideoplayer.close()">Close</button>
           </div>
           <iframe src="https://youtube.com/embed/wcFRffBvAvk?autoplay=1">
           </iframe>
@@ -403,7 +403,7 @@
       <div class="cebHeader">
 
         <h1>List of Diploma Programs (Cebuano)</h1>
-        <button onclick="cebVideoDiploma.close()">close</button>
+        <button onclick="cebVideoDiploma.close()">Close</button>
       </div>
       <iframe src="https://youtube.com/embed/TkaQhOYoTqM?autoplay=1">
       </iframe>
@@ -418,12 +418,12 @@
       </svg>
 
       <div class="bodyCourse">
-      <div class="upcontnt">
+        <div class="upcontnt">
 
-        <iframe src="https://youtube.com/embed/fsin3bYlWWo?autoplay=1 ">
-        </iframe>
-        <button onclick="cebVideoDiploma.showModal()">Bisaya/Cebuano Version</button>
-      </div>
+          <iframe src="https://youtube.com/embed/fsin3bYlWWo?autoplay=1 ">
+          </iframe>
+          <button onclick="cebVideoDiploma.showModal()">Bisaya/Cebuano Version</button>
+        </div>
         <div class="programdetails" id="DiplomaContainer">
           <div class="courseCard">
             <img
@@ -438,7 +438,7 @@
       </a>
     </section>
 
-   
+
 
     <section class="shortTerm" id="shortTerm">
       <h1>Short-Term/Skills Upgrading Programs</h1>
@@ -460,7 +460,7 @@
       </dialog>
       <dialog id="cebVideoST">
         <div class="cebHeader">
-  
+
           <h1>List of Short-Term Programs (Cebuano)</h1>
           <button onclick="cebVideoST.close()">close</button>
         </div>
@@ -487,6 +487,7 @@
             <h2 onclick="renderShorterm('LV I')">Level I</h2>
             <h2 onclick="renderShorterm('LV II')">Level II</h2>
             <h2 onclick="renderShorterm('ELearning')">Others</h2>
+            <h2 onclick="renderShorterm('ELearning')">See All</h2>
           </div>
         </div>
       </div>
@@ -504,7 +505,7 @@
       </div>
       <iframe src="https://youtube.com/embed/VbXCWBZov-8?autoplay=1">
       </iframe>
-      
+
     </dialog>
 
     <section class="communityBased" id="communityBased">
@@ -551,6 +552,7 @@
                 <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
                 <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
               </div>
+              
             </div>
 
 
@@ -644,15 +646,50 @@
 
         <button onclick="pdfViewer.showModal()">Submit Feedback</button>
         <h1>THANK YOU!</h1>
+
+        <div class="footerContents">
+          <div class="box1">
+            <h1>RTC-KorPhil Davao</h1>
+            <p>Buhisan, Tibungco, Davao City
+              8100, Philippiness</p>
+          </div>
+          <div class="box2">
+            <h1>Quick Links</h1>
+            <a href="Homepage.html"><p>Home</p></a>
+            <a href="Contact.html#aboutUs"><p>About Us</p></a>
+            <a href="InquiryPage.html"><p>Inquiries</p></a>
+          </div>
+          <div class="box3">
+            <h1>Important Links</h1>
+            <a href="https://www.tesda.gov.ph/"" target="_blank" rel="noopener noreferrer""><p>TESDA</p></a>
+            <a href="https://philkofa.org/" target="_blank" rel="noopener noreferrer"><p>KOICA Philippines</p></a>
+            <a href="https://tesdaxi.com/" target="_blank" rel="noopener noreferrer"><p>TESDA XI</p></a>
+            <a href="https://bsrs.tesda.gov.ph/" target="_blank" rel="noopener noreferrer"><p>BSRS</p></a>
+            <a href="https://s2sacademy.ph/" target="_blank" rel="noopener noreferrer"><p>S2S Academy</p></a>
+          </div>
+          <div class="box4">
+            <img src="https://www.korphildavao.site/wp-content/uploads/2023/01/transparency-seal-image-300x289.png" alt="">
+            <p>Transparency Seal</p>
+          </div>
+
+        </div>
       </footer>
+      
+      
       <dialog id="pdfViewer">
         <embed src="assets/Feedback Form (Fillable).pdf" type="">
-        <div class="closebtn">
-          <button onclick="pdfViewer.close()">close</button>
-        </div>
-      </dialog>
+          <div class="closebtn">
+            <button onclick="pdfViewer.close()">Close</button>
+          </div>
+        </dialog>
+        
+      </section>
+      <div class="copyright">
+        <p>Copyright © 2025 RTC-KorPhil Davao</p>
+        <p>Powered by KorPhil DIT 4</p>
+      </div>
 
-    </section>
+
 
   </main>
 
@@ -675,7 +712,7 @@
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script>
-    
+
     let mediafiles = [];
     let documents = [];
     let CourseLists = [];
@@ -748,7 +785,7 @@
       CertHeader.innerHTML = stprogram;
       shorterModal.showModal();
     }
-    
+
     async function renderCbtMtp(cbtprogram) {
       console.log(cbtprogram);
       let response = await fetch(

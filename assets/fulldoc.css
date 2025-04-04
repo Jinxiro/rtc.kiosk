@@ -6,6 +6,15 @@
   margin: 0;
   font-family: "Poppins", "San Serif";
   /* outline: 1px solid black; */
+  button{
+    font-size: 20px;
+  }
+  p{
+    font-size: 20px;
+  }
+  td, th{
+    font-size: 20px;
+  }
 }
 dialog {
   padding: 20px;
@@ -169,20 +178,19 @@ main {
           rgb(255, 246, 246),
           rgb(235, 235, 255)
         );
-        width: 320px;
-        height: 500px;
+        width: 350px;
+        height: auto;
         margin: 20px;
-
         h3 {
-          width: 250px;
+          width: 300px;
         }
 
         p {
-          width: 250px;
+          width: 300px;
         }
 
         button {
-          margin: 5px 10px;
+          margin: 20px 10px;
           padding: 20px;
           font-size: 20px;
           width: 200px;
@@ -252,6 +260,7 @@ main {
       p {
         text-align: center;
         width: 700px;
+        font-size: 20px;
       }
       img {
         height: 50px;
@@ -430,7 +439,9 @@ main {
         flex-direction: column;
         .note {
           text-align: center;
-          width: 800px;
+          width: 1000px;
+          font-size: 26px;
+          font-weight: bold;
         }
         .frontContent,
         .backContent {
@@ -452,6 +463,7 @@ main {
             align-items: center;
             justify-content: center;
             z-index: 5;
+            font-size: 20px
           }
         }
         .backContent {
@@ -485,7 +497,7 @@ main {
        font-style: italic;
           }
           p {
-            font-size: 20px;
+            font-size: 26px;
             width: 1200px;
             text-align: justify;
             text-justify: inter-word;
@@ -513,6 +525,7 @@ main {
           height: 700px;
           width: 1200px;
         }
+        p
       }
       .videoTutorial {
         margin-top: 50px;
@@ -538,6 +551,7 @@ main {
           color: white;
           font-size: 20px;
           padding: 15px;
+          height: 100px;
           width: 300px;
         &:hover{
           cursor: pointer;
@@ -590,6 +604,7 @@ main {
       align-items: center;
       button{
         padding: 5px;
+        
       }
     }
     iframe{
@@ -684,12 +699,12 @@ main {
     }
     button {
       padding: 30px;
-      width: 500px;
+      width: 400px;
       background-color: navy;
       color: white;
       border: none;
       border-radius: 15px;
-      font-size: 20px;
+      font-size: 26px;
     }
   }
 
@@ -761,6 +776,7 @@ main {
             color: white;
             box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.111);
             padding: 20px;
+            font-size: 26px;
             border-radius: 10px;
             background-color: rgb(32, 0, 51);
             &:hover {
@@ -778,7 +794,7 @@ main {
       color: white;
       border: none;
       border-radius: 15px;
-      font-size: 20px;
+      font-size: 26px;
     }
   }
   #shorterModal {
@@ -899,6 +915,7 @@ main {
                 color: white;
                 background-color: navy;
                 padding: 15px;
+                font-size: 26px;
                 text-align: center;
                 background-color: rgb(32, 0, 51);
                 &:hover {
@@ -926,6 +943,7 @@ main {
                 font-size: 15px;
                 color: white;
                 padding: 20px;
+                font-size: 26px;
                 text-align: center;
                 background-color: rgb(32, 0, 51);
                 &:hover {
@@ -945,7 +963,7 @@ main {
       color: white;
       border: none;
       border-radius: 15px;
-      font-size: 20px;
+      font-size: 26px;
     }
   }
   #cbtModal {
@@ -1018,7 +1036,7 @@ main {
 
       .callUs,
       .emailUS {
-        height: 500px;
+        height: auto;
         width: 700px;
         background-color: whitesmoke;
         padding: 20px;
@@ -1041,14 +1059,15 @@ main {
           .contactCard,
           .EmailCard {
             width: 320px;
+            height: auto;
             padding: 10px;
             background-color: white;
             margin: 5px;
             h1 {
-              font-size: 20px;
+              font-size: 26px;
             }
             p {
-              font-size: 14px;
+              font-size: 20px;
             }
           }
           .EmailCard {
@@ -1059,18 +1078,19 @@ main {
     }
   }
   .feedBack {
-    height: 200px;
+
+    padding: 20px;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     #pdfViewer{
       padding: 10px;
       border: none;
       height: 1000px;
       width: 1900px;
       embed{
-        height: 95%;
+        height: 90%;
         width: 100%;
       }
       .closebtn{
@@ -1081,6 +1101,7 @@ main {
           width: 200px;
           margin: auto;
           padding: 10px;
+          
           color: white;
           background-color: navy;
         }
@@ -1093,7 +1114,8 @@ main {
       justify-content: center;
       align-items: center;
       h1 {
-        font-size: 40px;
+        font-size: 80px;
+        
       }
       button {
         padding: 30px;
@@ -1102,8 +1124,38 @@ main {
         color: white;
         border: none;
         border-radius: 15px;
-        font-size: 20px;
+        font-size: 26px;
+      }
+      .footerContents{
+        margin-top: 20px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 300px 300px 300px 300px;
+      .box4{
+        text-align: center;
+        p{
+          font-weight: bold;
+        }
+      }
+      .box1, .box2, .box3, .box4{
+        width: 200px;
+        img{
+          height: 200px;
+        }
+       h1{
+        font-size: 20px
+       } 
+      }
       }
     }
   }
+}
+
+.copyright{
+  background-color: whitesmoke;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
