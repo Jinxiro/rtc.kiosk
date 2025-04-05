@@ -935,11 +935,10 @@ main {
             .btns {
               align-items: center;
               justify-content: center;
-              display: grid;
-              grid-template-columns: 280px 280px;
-              gap: 10px;
+              display: flex;
               h3 {
                 border-radius: 10px;
+                width: 100%;s
                 font-size: 15px;
                 color: white;
                 padding: 20px;
@@ -1002,6 +1001,30 @@ main {
       }
     }
   }
+
+  #shortermTbl,
+#diplomaTbl,
+#allshortermTbl,
+#allcbtTbl,
+#MTNRcbtTbl {
+  background-color: whitesmoke;
+  tr,
+  td {
+    &:hover {
+      background-color: rgb(207, 207, 207);
+    }
+  }
+  th {
+    text-align: center;
+  background-color: whitesmoke;
+  padding: 15px;
+  }
+  td {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
 
   .contact {
     background-image: linear-gradient(

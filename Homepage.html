@@ -46,6 +46,10 @@
       <h1>3 year Diploma</h1>
       <button onclick="diploma.close()">Close</button>
     </div>
+    <form method="dialog" >
+      <input type="text" id="DiplomaSearch" placeholder="Are you Looking for?" onkeyup="getCourse()">
+      <input type="submit">
+    </form>
     <table id="diplomaTbl">
     </table>
   </dialog>
@@ -55,7 +59,21 @@
       <h1> <span id="stCert"></span> Programs</h1>
       <button onclick="shorterModal.close()">Close</button>
     </div>
+  
     <table id="shortermTbl">
+    </table>
+  </dialog>
+
+  <dialog id="AllshorterModal">
+    <div class="tblheader">
+      <h1> <span id="AllstCert"></span> Programs</h1>
+      <button onclick="AllshorterModal.close()">Close</button>
+    </div>
+    <form method="dialog">
+      <input type="text" id="shortTermSearch" placeholder="Are you Looking for?" onkeyup="renderAllShorterm()">
+      <input type="submit">
+    </form>
+    <table id="allshortermTbl">
     </table>
   </dialog>
 
@@ -73,6 +91,7 @@
       <h2 onclick="renderShorterm('LV I')">Level I</h2>
       <h2 onclick="renderShorterm('LV II')">Level II</h2>
       <h2 onclick="renderShorterm('ELearning')">Others</h2>
+      <h2 onclick="renderAllShorterm()">See All</h2>
     </div>
   </dialog>
 
@@ -81,7 +100,36 @@
       <h1> <span id="cbtCert"></span> Programs</h1>
       <button onclick="cbtprogramModal.close()">Close</button>
     </div>
+    
     <table id="cbtTbl">
+    </table>
+  </dialog>
+
+ 
+
+  <dialog id="cbtMTPprogramModal">
+    <div class="tblheader">
+      <h1> <span id="allcbtCert"></span> Programs</h1>
+      <button onclick="cbtMTPprogramModal.close()">Close</button>
+    </div>
+    <form method="dialog" >
+      <input type="text" id="cbtmtpSearch" placeholder="Are you Looking for?" onkeyup="renderallCbtMtp()">
+      <input type="submit">
+    </form>
+    <table id="allcbtTbl">
+    </table>
+  </dialog>
+
+  <dialog id="cbtMTRprogramModal">
+    <div class="tblheader">
+      <h1> <span id="cbtCert"></span> Programs</h1>
+      <button onclick="cbtMTRprogramModal.close()">Close</button>
+    </div>
+    <form method="dialog" >
+      <input type="text" id="cbtmntrSearch" placeholder="Are you Looking for?" onkeyup="renderCbtMNTR()">
+      <input type="submit">
+    </form>
+    <table id="MTNRcbtTbl">
     </table>
   </dialog>
 
@@ -99,13 +147,13 @@
           <h3 onclick="renderCbtMtp('NC II')">NC II</h3>
           <h3 onclick="renderCbtMtp('NC III')">NC III</h3>
           <h3 onclick="renderCbtMtp('LV I')">LVL I</h3>
+          <h3 onclick="renderallCbtMtp()">See ALL</h3>
         </div>
       </div>
       <div class="right">
         <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
         <div class="btns">
-          <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
-          <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+          <h3 onclick="renderCbtMNTR()">All Programs</h3>
         </div>
       </div>
   </dialog>
@@ -187,7 +235,7 @@
         <img src="assets/images/Icons/clipboard-list.svg" alt="" />
         <p>Course List</p>
       </div>
-      <a href="InquiryPage.html   ">
+      <a href="InquiryPage.html">
         <div class="btn">
           <img src="assets/images/Icons/student-alt.svg" alt="" />
           <p>Inquiries</p>
@@ -215,6 +263,7 @@
 
 <script>
   let CourseLists = [];
+  let searchDiplomaLists = [];
   let shortTerms = [];
   let currentShortTerm;
   let MTPPrograms = [];
@@ -251,9 +300,9 @@
   }
 
   async function getCourse() {
-    // let searchstr = searchInput.value;
+    let searchstr = DiplomaSearch.value;
     let response = await fetch(
-      `http://localhost/rtc.kiosk/api/kioskdb.php?action=course`
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=course&search=${searchstr}`
     );
 
     CourseLists = await response.json();
@@ -274,6 +323,8 @@
         </tr>`;
     }
   }
+
+
 
   async function renderShorterm(stprogram) {
     console.log(stprogram);
@@ -299,6 +350,31 @@
     }
     stCert.innerHTML = stprogram;
     shorterModal.showModal();
+  }
+  async function renderAllShorterm() {
+    searchstr = shortTermSearch.value
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=Short-Term&search=${searchstr}`
+    );
+    shortTerms = await response.json();
+    console.log(shortTerms);
+
+    allshortermTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Status</th>
+          </tr>`;
+    for (const shorTerm of shortTerms) {
+      allshortermTbl.innerHTML += `
+            <tr   onclick="shortTermDesc(${shorTerm.id})">
+            <td>${shorTerm.courseName}</td>
+            <td>${shorTerm.certification}</td>
+            <td>${shorTerm.status}</td>
+          </tr>
+            `;
+    }
+    AllstCert.innerHTML = "All Short Term";
+    AllshorterModal.showModal();
   }
 
   async function renderCbtMtp(cbtprogram) {
@@ -329,22 +405,50 @@
     cbtprogramModal.showModal();
   }
 
-
-  async function renderCbtMNTR(MNTR) {
-    console.log(MNTR);
+  async function renderallCbtMtp() {
+    searchstr = cbtmtpSearch.value;
     let response = await fetch(
-      `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=All_CBT_MTP&search=${searchstr}`
+    );
+    MTPPrograms = await response.json();
+    console.log(MTPPrograms);
+
+    allcbtTbl.innerHTML = `<tr>
+            <th>Program</th>
+            <th>Certification</th>
+            <th>Under Program</th>
+            <th>Status</th>
+          </tr>`;
+    for (const MTPProgram of MTPPrograms) {
+      allcbtTbl.innerHTML += `
+            <tr onclick="shortTermDesc(${MTPProgram.id})">
+            <td>${MTPProgram.courseName}</td>
+            <td>${MTPProgram.certification}</td>
+            <td>${MTPProgram.program}</td>
+            <td>${MTPProgram.status}</td>
+          </tr>
+            `;
+    }
+    allcbtCert.innerHTML = "Mobile Training Program (MTP)";
+    cbtMTPprogramModal.showModal();
+  }
+
+
+  async function renderCbtMNTR() {
+    searchstr = cbtmntrSearch.value
+    let response = await fetch(
+      `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${searchstr}`
     );
     MNTRPrograms = await response.json();
     console.log(MNTRPrograms);
 
-    cbtTbl.innerHTML = `<tr>
+    MTNRcbtTbl.innerHTML = `<tr>
             <th>Program</th>
             <th>Under Program</th>
             <th>Status</th>
           </tr>`;
     for (const MNTRProgram of MNTRPrograms) {
-      cbtTbl.innerHTML += `
+      MTNRcbtTbl.innerHTML += `
             <tr onclick="shortTermDesc(${MNTRProgram.id})">
             <td>${MNTRProgram.courseName}</td>
             <td>${MNTRProgram.program}</td>
@@ -352,8 +456,8 @@
           </tr>
             `;
     }
-    cbtCert.innerHTML = MNTR;
-    cbtprogramModal.showModal();
+    cbtCert.innerHTML = "Training Monitoring & No Training Regulation (NTR)";
+    cbtMTRprogramModal.showModal();
   }
 
   getCourse();

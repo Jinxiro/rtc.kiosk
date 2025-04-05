@@ -448,6 +448,7 @@
           transform="translate(100 100)" />
       </svg>
       <dialog id="shorterModal">
+        
         <div class="tblheader">
 
           <h2><span id="CertHeader"></span> Programs</h2>
@@ -549,8 +550,8 @@
             <div class="right">
               <h1>Training Monitoring & No Training Regulation (NTR) Programs</h1>
               <div class="btns">
-                <h3 onclick="renderCbtMNTR('Monitoring')">Training Monitoring</h3>
-                <h3 onclick="renderCbtMNTR('NTR')">No Training Regulation (NTR)</h3>
+                <h3 onclick="renderCbtMNTR()">All Programs</h3>
+  
               </div>
               
             </div>
@@ -815,10 +816,11 @@
     }
 
 
-    async function renderCbtMNTR(MNTR) {
-      console.log(MNTR);
+    async function renderCbtMNTR() {
+      // searchstr = "MTNR"
+      console.log();
       let response = await fetch(
-        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR&search=${MNTR}`
+        `http://localhost/rtc.kiosk/api/kioskdb.php?action=CBT_MNTR`
       );
       MNTRPrograms = await response.json();
       console.log(MNTRPrograms);
@@ -837,7 +839,7 @@
           </tr>
             `;
       }
-      mtpCert.innerHTML = MNTR;
+      mtpCert.innerHTML = "Training Monitoring & No Training Regulation (NTR)";
       cbtModal.showModal();
     }
 

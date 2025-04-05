@@ -19,7 +19,7 @@ $dsn = "mysql:
     }
 
     if ($action == "course"){
-        $results = $conn->query("SELECT * FROM `three_year_course` ORDER BY `courseName` ASC")->fetchAll(PDO::FETCH_ASSOC);
+        $results = $conn->query("SELECT * FROM `three_year_course` WHERE `courseName` LIKE '%$search%' ORDER BY `courseName` ASC")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
     if ($action == "docs"){
@@ -30,12 +30,21 @@ $dsn = "mysql:
         $results = $conn->query("SELECT * FROM `short_term_course` WHERE `certification` LIKE '$search'")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
+    if ($action == "Short-Term"){
+        $results = $conn->query("SELECT * FROM `short_term_course` WHERE `courseName` LIKE '%$search%' ORDER BY `courseName` ASC")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
     if ($action == "CBT_MTP"){
         $results = $conn->query("SELECT * FROM `community_based` WHERE `certification` LIKE '$search' AND `program` LIKE 'Mobile Training Program (MTP)'")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
+    if ($action == "All_CBT_MTP"){
+        $results = $conn->query("SELECT * FROM `community_based` WHERE `courseName` LIKE '%$search%' AND `program` LIKE 'Mobile Training Program (MTP)' ORDER BY `id` ASC")->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    }
     if ($action == "CBT_MNTR"){
-        $results = $conn->query("SELECT * FROM `community_based` WHERE `program` LIKE '%$search%'")->fetchAll(PDO::FETCH_ASSOC);
+        $results = $conn->query("SELECT * FROM `community_based` WHERE `courseName` LIKE '%$search%' AND `program` LIKE 'Training Monitoring & No Training Regulation (NTR) Programs'
+")->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
     }
     if ($action == "EditDiploma"){
